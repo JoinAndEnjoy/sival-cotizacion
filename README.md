@@ -1,2 +1,2 @@
 # sival-cotizacion
-app se cotización para Sival
+app de cotización para Sival
