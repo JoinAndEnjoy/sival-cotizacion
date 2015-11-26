@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Five Minutes">
+      <meta name="author" content="Five Minutes">
+
+      <title>Cotizador</title>
+      
+     
+      <link href="{% static 'formulario/css/font-awesome.min.css' %}" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="{% static 'formulario/css/bootstrap.min.css' %}" rel="stylesheet">
+       <link href="{% static 'formulario/css/style.css' %}" rel="stylesheet">
+      
+  </head>
+
+  <body>
+  
+  <div class = "container">
+  	<div clas = "row">
+  		<div class = "col-sm-4 col-sm-offset-4 text-center">
+  		<div class = "contenedor">
+  		<h1>Formulario</h1>
+			{% if error_message %}
+			<p>
+				<strong>{{ error_message }}</strong>
+			</p>
+			{% endif %}
+	
+		<form action="{% url 'formulario:crearRuta' %}" method="post">
+			{% csrf_token %} 
+			<input type="text" name="origen"id="origen" placeholder = "Origen" class = "form-control input-enviar" required> 
+			
+			<input type="text" name="destino" id="destino" placeholder = "Destino" class = "form-control input-enviar" required> 
+
+			<input type="submit" value="Enviar" class = "btn btn-success btn-enviar" />
+		</form>
+  		</div>
+	  		
+  		</div>
+  	</div>
+  </div>
+  
+		
+  
+  
+  </body>
+  </html>
+

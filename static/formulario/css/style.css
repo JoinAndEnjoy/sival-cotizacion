@@ -1,0 +1,76 @@
+/* FONTS */
+
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+@-webkit-keyframes fade-in {
+    0%   { opacity: 0; }
+    50%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+body {
+ 	 background-color: #f2f2f2;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #333;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    /*
+    -webkit-animation-name: fade-in;
+    -webkit-animation-duration: 2s;*/
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato";
+    font-weight: 300;
+    color: #333;
+}
+
+.btn-enviar{
+	width:100%;
+	background-color: #3498db;
+	border: none !important;
+	border-color: black;
+	padding-top:10px !important;
+	padding-bottom:10px !important;
+	
+	-webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in, background 0.15s ease-in;
+    -ms-transition: color 0.15s ease-in, background 0.15s ease-in;
+    -o-transition: color 0.15s ease-in, background 0.15s ease-in;
+    transition: color 0.15s ease-in, background 0.15s ease-in;
+    font-size:13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.contenedor h1{
+	font-size: 25px;
+	margin-top: -5px;
+	margin-bottom: 15px;
+	font-weight: 300;
+}
+
+.btn-enviar:hover{
+	background-color: #2980b9;
+}
+
+.input-enviar{
+	margin-bottom: 10px;
+}
+
+.contenedor{
+	background-color: white;
+	margin-top: 170px;
+	padding: 20px;
+	border-radius: 5px;
+	
+	-webkit-box-shadow: 0px 0px 22px -1px rgba(0,0,0,0.21);
+-moz-box-shadow: 0px 0px 22px -1px rgba(0,0,0,0.21);
+box-shadow: 0px 0px 22px -1px rgba(0,0,0,0.21);
+}
