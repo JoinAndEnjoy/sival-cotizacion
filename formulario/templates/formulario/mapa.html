@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	height: 20%;
+}
+</style>
+</head>
+<body>
+	<div id="map" style="height: 100%"></div>
+	<script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'formulario/js/mapa.js' %}"></script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcEPNy2nmaDLDzM9u4q3XWokUK7UVAUcA&callback=initMap">
+    </script>
+</body>
+</html>
