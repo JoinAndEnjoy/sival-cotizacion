@@ -4,14 +4,14 @@
 @-webkit-keyframes fade-in { 0% {opacity: 0;}50%{opacity:0;}100%{opacity:1;}}
 
 
-html {
+/*html {
 	background: url(../img/fondo.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	height: 100%;
-}
+}*/
 
 body {
 	background-color: #f2f2f2;
@@ -42,21 +42,19 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	background-color: #2e3436;
 	border: none !important;
-	border-color: black;
-	padding-top: 10px !important;
+	padding-top: 8px !important;
 	padding-bottom: 10px !important;
 	-webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
 	-moz-transition: color 0.15s ease-in, background 0.15s ease-in;
 	-ms-transition: color 0.15s ease-in, background 0.15s ease-in;
 	-o-transition: color 0.15s ease-in, background 0.15s ease-in;
 	transition: color 0.15s ease-in, background 0.15s ease-in;
-	font-size: 13px;
+	font-size: 11px;
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 2px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	border-radius: 0px
+	border-radius: 0px;
+	color: white;
 }
 
 .contenedor h1 {
@@ -135,7 +133,92 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .formulario-container{
-	height: 300px;
-	width: 100px;
-	background-color: white;
+	height: 450px;
+	width: 75%;
+	background-color: #fd9164;
+	position: absolute;
+	top: 5%;
+    right: 4%;
+    padding-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 30px;
+    margin-right: 30px;
+    -webkit-box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
 }
+
+.cont-a
+{
+	margin-bottom: 15px;
+	text-align: right;
+}
+
+.botones-fomulario
+{
+	width: 100%;
+	margin-bottom: 15px;
+	border: none;
+	-webkit-border-radius: 3px;
+	border-radius: 2px;
+	
+}
+
+.formulario-container input
+{
+	height: 30px;
+}
+
+.formulario-container input::-webkit-input-placeholder
+{
+	font-size:15px;
+}
+
+.formulario-container textarea
+{
+	padding-left: 10px;
+}
+
+.formulario-container a
+{
+	color:white;
+	font-size: 11px;
+    border: 0 solid #FFFFFF;
+    border-bottom: 2px dashed #FFFFFF;
+}
+
+
+
+.contenedor-global
+ {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+
+
+
+/* estilos de los iconos
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color: #b6b6b6;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
