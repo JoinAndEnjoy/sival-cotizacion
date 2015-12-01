@@ -8,7 +8,7 @@
 	background: url(../img/fondo.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
-	-o-background-size: cover;
+	-o-background-size: cove 	 	r;
 	background-size: cover;
 	height: 100%;
 }*/
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	letter-spacing: 2px;
 	border-radius: 0px;
-	color: white;
+	color: white !important;
 }
 
 .contenedor h1 {
@@ -158,25 +158,46 @@ h1, h2, h3, h4, h5, h6 {
 {
 	width: 100%;
 	margin-bottom: 15px;
-	border: none;
+	border: 1px solid white;
 	-webkit-border-radius: 3px;
 	border-radius: 2px;
-	
+
+	-webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+
+.glyphicon{
+-webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
 }
 
 .formulario-container input
 {
 	height: 30px;
+	font-size: 14px;
+	color: #2e3436;
+	font-weight: 400;
+}
+
+.formulario-container input:focus + .glyphicon{
+	color: #2e3436;
 }
 
 .formulario-container input::-webkit-input-placeholder
 {
-	font-size:15px;
+	font-size:14px;
 }
 
 .formulario-container textarea
 {
 	padding-left: 10px;
+	resize: none;
 }
 
 .formulario-container a
@@ -184,7 +205,8 @@ h1, h2, h3, h4, h5, h6 {
 	color:white;
 	font-size: 11px;
     border: 0 solid #FFFFFF;
-    border-bottom: 2px dashed #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    font-weight: 500;
 }
 
 
@@ -208,7 +230,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* style icon */
-.inner-addon .glyphicon {
+.mis-iconos {
   position: absolute;
   padding: 10px;
   pointer-events: none;
@@ -222,3 +244,15 @@ h1, h2, h3, h4, h5, h6 {
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+.left-addon .glyphicon {
+    left: -2px;
+    top: -1px;
+    font-size: 13px;
+}
+
+
+.botones-fomulario:focus{
+	outline: none;
+	border:1px solid #2e3436;
+}

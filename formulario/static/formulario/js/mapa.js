@@ -10,6 +10,11 @@ function initMap() {
   });
 }
 
-$(function () {
-	$('#fecha').datetimepicker();
+
+$("#fecha").focus(function(){
+	$("#icono-fecha").css("color","#2e3436");
+});
+
+$("#fecha").focusout(function(){
+	$("#icono-fecha").css("color","#b6b6b6");
 });
