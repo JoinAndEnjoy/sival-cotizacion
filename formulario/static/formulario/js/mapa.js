@@ -76,6 +76,7 @@ function initMap()
 			}
 		});
 		map.fitBounds(bounds);
+		calcRoute();
 	});
 
 
@@ -84,7 +85,7 @@ function initMap()
 		if (places.length == 0) {
 			return;
 		}
-		markers.forEach(function(marker) {
+		markers2.forEach(function(marker) {
 			marker.setMap(null);
 		});
 		markers2 = [];
