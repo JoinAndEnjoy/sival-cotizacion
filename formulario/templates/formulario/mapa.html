@@ -15,8 +15,6 @@
 		width: 100%;
 	}
 	</style>
-	<link href="{% static 'formulario/css/font-awesome.min.css' %}"
-	rel="stylesheet">
 	<link href="{% static 'formulario/css/bootstrap.min.css' %}"
 	rel="stylesheet">
 
@@ -43,7 +41,7 @@
 						<div class="col-sm-10 col-sm-offset-1 text-center">
 							<div class="inner-addon left-addon">
 								
-								<input type="text" name="origen" id="origen"
+								<input type="text" name="origen" id='origen'
 								placeholder="Punto de origen" class="botones-fomulario" required>
 								<i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
 							</div>
@@ -96,7 +94,8 @@
 	<script type="text/javascript" src="{% static 'date-picker/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %} "></script>
 	<script type="text/javascript" src="{% static 'formulario/js/mapa.js' %}"></script>
 	<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcEPNy2nmaDLDzM9u4q3XWokUK7UVAUcA&callback=initMap">
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcEPNy2nmaDLDzM9u4q3XWokUK7UVAUcA&callback=initMap&libraries=places">
 	</script>
+
 </body>
 </html>
