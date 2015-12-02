@@ -133,7 +133,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .formulario-container{
-	height: 450px;
+	max-height: 564px;
+	padding-bottom: 17px;
 	width: 75%;
 	background-color: #fd9164;
 	position: absolute;
@@ -255,4 +256,31 @@ h1, h2, h3, h4, h5, h6 {
 .botones-fomulario:focus{
 	outline: none;
 	border:1px solid #2e3436;
+}
+
+.punto-int{
+	width: 85%;
+	margin-left: auto;
+}
+
+#puntos-div{
+	max-height: 100px;
+	overflow-y: scroll;
+	margin-bottom: 14px;
+	display: none;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.punto-int-input{
+	margin-bottom: 5px;
+	margin-top: 5px;
 }

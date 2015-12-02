@@ -2,31 +2,31 @@
  * 
  */
 
-var map;
-var directionsDisplay;
-var directionsService;
+ var map;
+ var directionsDisplay;
+ var directionsService;
 
-var markers = [];
-var markers2 = [];
-var waypts = [];
+ var markers = [];
+ var markers2 = [];
+ var waypts = [];
 
-function initMap()
-{
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 4.7109903, lng:-74.0721436},
-		zoom: 13,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	});
-	directionsDisplay = new google.maps.DirectionsRenderer();
-	directionsService = new google.maps.DirectionsService();
-	directionsDisplay.setMap(map);
+ function initMap()
+ {
+ 	map = new google.maps.Map(document.getElementById('map'), {
+ 		center: {lat: 4.7109903, lng:-74.0721436},
+ 		zoom: 13,
+ 		mapTypeId: google.maps.MapTypeId.ROADMAP
+ 	});
+ 	directionsDisplay = new google.maps.DirectionsRenderer();
+ 	directionsService = new google.maps.DirectionsService();
+ 	directionsDisplay.setMap(map);
 
 //	Create the search box and link it to the UI element.
-	var input = document.getElementById('origen');
-	var searchBox = new google.maps.places.SearchBox(input);
+var input = document.getElementById('origen');
+var searchBox = new google.maps.places.SearchBox(input);
 
-	var input2 = document.getElementById('destino');
-	var searchBox2 = new google.maps.places.SearchBox(input2);
+var input2 = document.getElementById('destino');
+var searchBox2 = new google.maps.places.SearchBox(input2);
 	//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input); eliminar esta linea para mantener los estilos
 
 
@@ -81,8 +81,8 @@ function initMap()
 		map.fitBounds(bounds);
 		calcRoute();
 	});*/
-	agregarListener(markers,searchBox);
-	agregarListener(markers2,searchBox2);
+	agregarListener("markers",searchBox);
+	agregarListener("markers2",searchBox2);
 	/*
 	searchBox2.addListener('places_changed', function(){
 		var places = searchBox2.getPlaces();
@@ -125,30 +125,30 @@ function initMap()
 	});*/
 }
 
-function agregarListener(markers, searchBox){
-	searchBox.addListener('places_changed', function(){
-		var places = searchBox.getPlaces();
-		if (places.length == 0) {
-			return;
-		}
-		markers.forEach(function(marker) {
-			marker.setMap(null);
-		});
-		markers = [];
+function agregarListener(markersn, searchBoxn){
+	searchBoxn.addListener('places_changed', function(){
+	var places = searchBoxn.getPlaces();
+	if (places.length == 0) {
+		return;
+	}
+	window[markersn].forEach(function(marker) {
+		marker.setMap(null);
+	});
+	window[markersn] = [];
 
-		var bounds = new google.maps.LatLngBounds();
+	var bounds = new google.maps.LatLngBounds();
 
-		places.forEach(function(place) {
-			var icon = {
-					url: place.icon,
-					size: new google.maps.Size(71, 71),
-					origin: new google.maps.Point(0, 0),
-					anchor: new google.maps.Point(17, 34),
-					scaledSize: new google.maps.Size(25, 25)
-			};
+	places.forEach(function(place) {
+		var icon = {
+			url: place.icon,
+			size: new google.maps.Size(71, 71),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(17, 34),
+			scaledSize: new google.maps.Size(25, 25)
+		};
 
 			// Create a marker for each place.
-			markers.push(new google.maps.Marker({
+			window[markersn].push(new google.maps.Marker({
 				map: map,
 				icon: icon,
 				title: place.name,
@@ -162,28 +162,32 @@ function agregarListener(markers, searchBox){
 				bounds.extend(place.geometry.location);
 			}
 		});
-		map.fitBounds(bounds);
-		calcRoute();
-	});
+	map.fitBounds(bounds);
+
+	calcRoute();
+});
 }
 
+
 function calcRoute() {
-	if (markers.length == 0 || markers2.length == 0)
+	if (markers.length == 0 || markers2.length == 0){
 		return;
+	}
+		
 	
 	waypts.push({
-        location: {lat: 5.205117999999999, lng: -74.73708099999999},
-        stopover: true
-      });
+		location: {lat: 5.205117999999999, lng: -74.73708099999999},
+		stopover: true
+	});
 	var start = markers[0].position;
 	var end = markers2[0].position;
 	var request = {
-			origin:start,
-			destination:end,
-			waypoints: waypts,
-		    optimizeWaypoints: true,
-			travelMode: google.maps.TravelMode.DRIVING,
-			provideRouteAlternatives:true
+		origin:start,
+		destination:end,
+		waypoints: waypts,
+		optimizeWaypoints: true,
+		travelMode: google.maps.TravelMode.DRIVING,
+		provideRouteAlternatives:true
 	};
 	directionsService.route(request, function(result, status) {
 		if (status == google.maps.DirectionsStatus.OK) {
@@ -201,3 +205,18 @@ $("#fecha").focus(function(){
 $("#fecha").focusout(function(){
 	$("#icono-fecha").css("color","#b6b6b6");
 });
+
+$('#definir-ruta').click(function(){
+	$('#puntos-div').css("display","block");
+	$('#puntos-div').append("<div class = 'punto-int'>\
+								<div class='inner-addon left-addon'>\
+								<input type='text' name'origen' id='origen'\
+								placeholder='Punto de origen' class='botones-fomulario punto-int-input' required>\
+								<i class='glyphicon glyphicon-map-marker mis-iconos'></i> \
+							</div>");
+
+	$('#puntos-div').animate({
+          scrollTop: 1000
+        }, 1000);
+});
+
