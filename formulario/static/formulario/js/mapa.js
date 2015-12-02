@@ -23,6 +23,12 @@ function initMap()
 	directionsDisplay = new google.maps.DirectionsRenderer();
 	directionsService = new google.maps.DirectionsService();
 	directionsDisplay.setMap(map);
+	var tama = 8;
+	for(i=0;i<8;i++)
+	{
+		internalmark.push(undefined);
+	}
+
 
 //	Create the search box and link it to the UI element.
 	var input = document.getElementById('origen');
@@ -41,7 +47,7 @@ function initMap()
 
 	agregarListener("markers",searchBox);
 	agregarListener("markers2",searchBox2);
-	
+
 }
 
 function agregarListener(markersn, searchBoxn){
@@ -112,7 +118,7 @@ function agregarListenerInternal(searchBoxn,index){
 			};
 
 			// Create a marker for each place.
-				markersn.push(new google.maps.Marker({
+			markersn.push(new google.maps.Marker({
 				map: map,
 				icon: icon,
 				title: place.name,
@@ -137,13 +143,17 @@ function calcRoute() {
 	if (markers.length == 0 || markers2.length == 0){
 		return;
 	}
-	
+
 	waypts = [];
 	internalmark.forEach(function(punto){
-		waypts.push({
-			location: punto.position,
-			stopover: true
-		});
+		if(punto!=undefined)
+		{
+			waypts.push({
+				location: punto.position,
+				stopover: true
+			});
+		}
+
 	});
 	var start = markers[0].position;
 	var end = markers2[0].position;
@@ -168,13 +178,14 @@ function eliminarMarks()
 	markers.forEach(function(marker) {
 		marker.setMap(null);
 	});
-	
+
 	markers2.forEach(function(marker) {
 		marker.setMap(null);
 	});
-	
+
 	internalmark.forEach(function(marker) {
-		marker.setMap(null);
+		if(marker!=undefined)
+			marker.setMap(null);
 	});
 }
 
