@@ -36,6 +36,7 @@ function initMap()
 
 	// Listen for the event fired when the user selects a prediction and retrieve
 	// more details for that place.
+	/*
 	searchBox.addListener('places_changed', function() {
 		var places = searchBox.getPlaces();
 
@@ -77,9 +78,10 @@ function initMap()
 		});
 		map.fitBounds(bounds);
 		calcRoute();
-	});
-
-
+	});*/
+	agregarListener(markers,searchBox);
+	agregarListener(markers2,searchBox2);
+	/*
 	searchBox2.addListener('places_changed', function(){
 		var places = searchBox2.getPlaces();
 		if (places.length == 0) {
@@ -103,6 +105,48 @@ function initMap()
 
 			// Create a marker for each place.
 			markers2.push(new google.maps.Marker({
+				map: map,
+				icon: icon,
+				title: place.name,
+				position: place.geometry.location
+			}));
+
+			if (place.geometry.viewport) {
+				// Only geocodes have viewport.
+				bounds.union(place.geometry.viewport);
+			} else {
+				bounds.extend(place.geometry.location);
+			}
+		});
+		map.fitBounds(bounds);
+		calcRoute();
+	});*/
+}
+
+function agregarListener(markers, searchBox){
+	searchBox.addListener('places_changed', function(){
+		var places = searchBox.getPlaces();
+		if (places.length == 0) {
+			return;
+		}
+		markers.forEach(function(marker) {
+			marker.setMap(null);
+		});
+		markers = [];
+
+		var bounds = new google.maps.LatLngBounds();
+
+		places.forEach(function(place) {
+			var icon = {
+					url: place.icon,
+					size: new google.maps.Size(71, 71),
+					origin: new google.maps.Point(0, 0),
+					anchor: new google.maps.Point(17, 34),
+					scaledSize: new google.maps.Size(25, 25)
+			};
+
+			// Create a marker for each place.
+			markers.push(new google.maps.Marker({
 				map: map,
 				icon: icon,
 				title: place.name,
