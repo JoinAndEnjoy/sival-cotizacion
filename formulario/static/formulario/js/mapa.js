@@ -5,8 +5,10 @@
 var map;
 var directionsDisplay;
 var directionsService;
+
 var markers = [];
 var markers2 = [];
+var waypts = [];
 
 function initMap()
 {
@@ -68,7 +70,7 @@ function initMap()
 				title: place.name,
 				position: place.geometry.location
 			}));
-
+			
 			if (place.geometry.viewport) {
 				// Only geocodes have viewport.
 				bounds.union(place.geometry.viewport);
@@ -166,18 +168,29 @@ function agregarListener(markers, searchBox){
 }
 
 function calcRoute() {
-  var start = markers[0].position;
-  var end = markers2[0].position;
-  var request = {
-    origin:start,
-    destination:end,
-    travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(result, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(result);
-    }
-  });
+	if (markers.length == 0 || markers2.length == 0)
+		return;
+	
+	waypts.push({
+        location: {lat: 5.205117999999999, lng: -74.73708099999999},
+        stopover: true
+      });
+	var start = markers[0].position;
+	var end = markers2[0].position;
+	var request = {
+			origin:start,
+			destination:end,
+			waypoints: waypts,
+		    optimizeWaypoints: true,
+			travelMode: google.maps.TravelMode.DRIVING,
+			provideRouteAlternatives:true
+	};
+	directionsService.route(request, function(result, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(result);
+			map.clearOverlays();
+		}
+	});
 }
 
 
