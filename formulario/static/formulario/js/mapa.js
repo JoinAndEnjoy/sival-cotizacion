@@ -7,20 +7,20 @@
 var map;
 var directionsDisplay;
 var directionsService;
-var tamano = 20;
-var tamano2 = 20;
+var inicio = true;
 
 
 var markers = [];
 var markers2 = [];
 var waypts = [];
 var internalmark = [];
+var internalmark2 = [];
 
 var numPun = 0;
+var numPun2 = 0;
 
 function initMap()
 {
-    $('.pws_tabs_list').css("height", tamano+"px");
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 4.7109903, lng: -74.0721436},
         zoom: 13,
@@ -29,10 +29,15 @@ function initMap()
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
-    var tama = 8;
+
     for (i = 0; i < 8; i++)
     {
         internalmark.push(undefined);
+    }
+    
+    for (i = 0; i < 8; i++)
+    {
+        internalmark2.push(undefined);
     }
 
 
@@ -104,7 +109,7 @@ function agregarListenerInternal(searchBoxn, index) {
     var indice = index;
     searchBoxn.addListener('places_changed', function () {
         var places = searchBoxn.getPlaces();
-        if (places.length == 0) {
+        if (places.length === 0) {
             return;
         }
         markersn.forEach(function (marker) {
@@ -139,20 +144,29 @@ function agregarListenerInternal(searchBoxn, index) {
             }
         });
         map.fitBounds(bounds);
-        internalmark.splice(indice, 1, markersn[0])
+        if (inicio)
+            internalmark.splice(indice, 1, markersn[0]);
+        else
+            internalmark2.splice(index, 1, markersn[0]);
         calcRoute();
     });
 }
 
 
 function calcRoute() {
-    if (markers.length == 0 || markers2.length == 0) {
+    if (markers.length === 0 || markers2.length === 0) {
         return;
     }
 
     waypts = [];
-    internalmark.forEach(function (punto) {
-        if (punto != undefined)
+    var intep;
+    if(inicio)
+        intep = internalmark;
+    else
+        intep = internalmark2;
+    
+    intep.forEach(function (punto) {
+        if (punto !== undefined)
         {
             waypts.push({
                 location: punto.position,
@@ -190,7 +204,12 @@ function eliminarMarks()
     });
 
     internalmark.forEach(function (marker) {
-        if (marker != undefined)
+        if (marker !== undefined)
+            marker.setMap(null);
+    });
+    
+    internalmark2.forEach(function (marker) {
+        if (marker !== undefined)
             marker.setMap(null);
     });
 }
@@ -204,9 +223,6 @@ $("#fecha").focusout(function () {
 });
 
 $('#definir-ruta').click(function () {
-    tamano += 40;
-    if(tamano<150)
-        $('.pws_tabs_list').css("height", tamano+"px");
     numPun++;
     if (numPun < 9)
     {
@@ -230,17 +246,37 @@ $('#definir-ruta').click(function () {
     }
 });
 
-// script tablas
+$('#definir-ruta-regreso').click(function () {
+    numPun2++;
+    if (numPun2 < 9)
+    {
+        $('#puntos-div-regreso').css("display", "block");
+        $('#puntos-div-regreso').append("<div class = 'punto-int'>\
+				<div class='inner-addon left-addon'>\
+				<input type='text' name='origen' id='intermedio2" + numPun2 + "'\
+				placeholder='Punto intermedio " + numPun2 + "' class='botones-fomulario punto-int-input' required>\
+				<i class='glyphicon glyphicon-map-marker mis-iconos'></i> \
+		</div>");
 
-jQuery(document).ready(function ($) {
-    $('.tabla').pwstabs();
+        $('#puntos-div-regreso').animate({
+            scrollTop: 1000
+        }, 600);
+        var input = document.getElementById('intermedio2' + numPun2);
+        var searchBox = new google.maps.places.SearchBox(input);
+        agregarListenerInternal(searchBox, numPun2 - 1);
+    } else
+    {
+        alert("No se pueden definir más puntos");
+    }
 });
 
-$('#ida').click(function (){
-    $('.pws_tabs_list').css("height", tamano+"px");
+$('#ida').click(function () {
+    inicio = true;
+    calcRoute();
 });
 
-$('#vuelta').click(function (){
-    $('.pws_tabs_list').css("height", tamano2+"px");
+$('#regreso').click(function () {
+    inicio = false;
+    calcRoute();
 });
 

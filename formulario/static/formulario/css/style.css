@@ -5,140 +5,140 @@
 
 
 /*html {
-	background: url(../img/fondo.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cove 	 	r;
-	background-size: cover;
-	height: 100%;
+        background: url(../img/fondo.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cove 	 	r;
+        background-size: cover;
+        height: 100%;
 }*/
 
 body {
-	background-color: #f2f2f2;
-	font-family: "Lato";
-	font-weight: 300;
-	font-size: 16px;
-	color: #333;
-	-webkit-font-smoothing: antialiased;
-	-webkit-overflow-scrolling: touch;
-	/*
-    -webkit-animation-name: fade-in;
-    -webkit-animation-duration: 2s;*/
+    background-color: #f2f2f2;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    /*
+-webkit-animation-name: fade-in;
+-webkit-animation-duration: 2s;*/
 }
 
 .primal {
-	position: absolute;
-	width: 100%;
+    position: absolute;
+    width: 100%;
 }
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Lato";
-	font-weight: 300;
-	color: #ffffff;
+    font-family: "Lato";
+    font-weight: 300;
+    color: #ffffff;
 }
 
 .btn-enviar {
-	width: 100%;
-	background-color: #2e3436;
-	border: none !important;
-	padding-top: 8px !important;
-	padding-bottom: 10px !important;
-	-webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
-	-moz-transition: color 0.15s ease-in, background 0.15s ease-in;
-	-ms-transition: color 0.15s ease-in, background 0.15s ease-in;
-	-o-transition: color 0.15s ease-in, background 0.15s ease-in;
-	transition: color 0.15s ease-in, background 0.15s ease-in;
-	font-size: 11px;
-	text-transform: uppercase;
-	font-weight: 700;
-	letter-spacing: 2px;
-	border-radius: 0px;
-	color: white !important;
+    width: 100%;
+    background-color: #2e3436;
+    border: none !important;
+    padding-top: 8px !important;
+    padding-bottom: 10px !important;
+    -webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in, background 0.15s ease-in;
+    -ms-transition: color 0.15s ease-in, background 0.15s ease-in;
+    -o-transition: color 0.15s ease-in, background 0.15s ease-in;
+    transition: color 0.15s ease-in, background 0.15s ease-in;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 0px;
+    color: white !important;
 }
 
 .contenedor h1 {
-	font-size: 15px;
-	margin-top: -5px;
-	margin-bottom: 35px;
-	font-weight: 900;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	line-height: 18px;
+    font-size: 15px;
+    margin-top: -5px;
+    margin-bottom: 35px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 18px;
 }
 
 .btn-enviar:hover {
-	background-color: #555753;
+    background-color: #555753;
 }
 
 
 
 .input-enviar {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .contenedor {
-	background-color: rgba(255, 255, 255, 0.4);
-	margin-top: 25%;
-	padding-top: 50px;
-	padding-bottom: 10px;
-	padding-left: 50px;
-	padding-right: 50px;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
-	-moz-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
-	box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
-	border-radius: 0px
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 25%;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
+    box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
+    border-radius: 0px
 }
 
 .mensaje {
-	display: none;
-	margin-top: 20px;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	background-color: #74e361;
-	border-radius: 0px;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-bottom: none;
-	-webkit-box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
-	box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
-	color:white;
+    display: none;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #74e361;
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    -webkit-box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
+    color:white;
 }
 
 .mensaje a
 {
-	color: white;
+    color: white;
 }
 
 .enjoy-css {
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	box-shadow: none !important;
-	border-radius: 0px;
-	background-color: transparent;
-	color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none !important;
+    border-radius: 0px;
+    background-color: transparent;
+    color: white;
 }
 
 .enjoy-css:focus {
-	border-color: white;
+    border-color: white;
 }
 
 .enjoy-css::-webkit-input-placeholder {
-	color: #ffffff;
+    color: #ffffff;
 }
 
 .formulario-container{
-	max-height: 564px;
-	padding-bottom: 17px;
-	width: 75%;
-	background-color: #fd9164;
-	position: absolute;
-	top: 5%;
+    max-height: 564px;
+    padding-bottom: 17px;
+    width: 75%;
+    background-color: #fd9164;
+    position: absolute;
+    top: 5%;
     right: 4%;
     padding-top: 20px;
     padding-left: 0px;
@@ -146,65 +146,72 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 30px;
     margin-right: 30px;
     -webkit-box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.5);
-	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
 }
 
 .cont-a
 {
-	margin-bottom: 15px;
-	text-align: right;
+    text-align: center;       
 }
 
+.cont-a a{
+    color: black !important;
+}
+
+.cont-a a:hover{
+    background-color: #b6b6b6;
+    text-decoration: none;
+}
 .botones-fomulario
 {
-	width: 100%;
-	margin-bottom: 15px;
-	border: 1px solid white;
-	-webkit-border-radius: 3px;
-	border-radius: 2px;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid white;
+    -webkit-border-radius: 3px;
+    border-radius: 2px;
 
-	-webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-       -o-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-          transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .glyphicon{
--webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-       -o-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-          transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .formulario-container input
 {
-	height: 30px;
-	font-size: 14px;
-	color: #2e3436;
-	font-weight: 400;
+    height: 30px;
+    font-size: 14px;
+    color: #2e3436;
+    font-weight: 400;
 }
 
 .formulario-container input:focus + .glyphicon{
-	color: #2e3436;
+    color: #2e3436;
 }
 
 .formulario-container input::-webkit-input-placeholder
 {
-	font-size:14px;
+    font-size:14px;
 }
 
 .formulario-container textarea
 {
-	padding-left: 10px;
-	resize: none;
+    padding-left: 10px;
+    resize: none;
 }
 
 .formulario-container a
 {
-	color:white;
-	font-size: 11px;
+    color:white;
+    font-size: 11px;
     border: 0 solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     font-weight: 500;
@@ -213,11 +220,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .contenedor-global
- {
-	width: 100%;
-	position: absolute;
-	top: 0px;
-	left: 0px;
+{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 
@@ -232,10 +239,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* style icon */
 .mis-iconos {
-  position: absolute;
-  padding: 10px;
-  pointer-events: none;
-  color: #b6b6b6;
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+    color: #b6b6b6;
 }
 
 /* align icon */
@@ -254,16 +261,23 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .botones-fomulario:focus{
-	outline: none;
-	border:1px solid #2e3436;
+    outline: none;
+    border:1px solid #2e3436;
 }
 
 .punto-int{
-	width: 85%;
-	margin-left: auto;
+    width: 85%;
+    margin-left: auto;
 }
 
 #puntos-div{
+    display: table-row;
+    max-height: 100px;
+    overflow-y: scroll;
+    display: none;
+}
+
+#puntos-div-regreso{
     display: table-row;
     max-height: 100px;
     overflow-y: scroll;
@@ -281,6 +295,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .punto-int-input{
-	margin-bottom: 5px;
-	margin-top: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }

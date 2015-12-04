@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4/12/2015, 03:39:56 PM
+    Author     : jose
+*/
+.panel-primary {
+    border: none;
+    
+}
+
+.panel-primary > .panel-heading {
+    color: #FFF;
+    background-color: #FD9164;
+    border-color: #FD9164;
+}
+
+
+.panel-heading{
+    padding-bottom: 0px;
+}
+
+.nav-tabs{
+    border: none;
+}
+
+.panel-body {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 13px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
