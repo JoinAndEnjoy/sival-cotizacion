@@ -17,3 +17,6 @@ def crearRuta(request):
 
 def verMapa(request):
     return render(request,'formulario/mapa.html')
+
+def verTabla(request):
+    return render(request,'formulario/tabla.html')

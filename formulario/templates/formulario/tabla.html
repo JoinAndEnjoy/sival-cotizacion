@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link href="{% static 'formulario/css/bootstrap.min.css' %}"
+              rel="stylesheet">
+        <link href="{% static 'formulario/css/style.css' %}" rel="stylesheet">
+
+
+
+
+        <script type="text/javascript"
+        src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
+        <script type="text/javascript"
+        src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
+
+
+        <link type="text/css" rel="stylesheet"
+              href="{% static 'tab/pwstabs/assets/jquery.pwstabs.css' %}">
+        <script type="text/javascript"
+        src="{% static 'tab/pwstabs/assets/jquery.pwstabs.js' %}"></script>
+
+        <link href="{% static 'formulario/css/tabla.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <div id="map" style="height: 100%"></div>
+        <div class="container contenedor-global">
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-9 text-center">
+
+                    <div class="tabla">
+                        <div data-pws-tab="anynameyouwant1" data-pws-tab-name="Ruta de ida">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="inner-addon left-addon">
+                                        <input type="text" name="origen" id='origen' placeholder="Punto de origen" class="botones-fomulario" required>
+                                        <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-pws-tab="anynameyouwant2" data-pws-tab-name="ruta de regreso">EL NUEVO CAMBIO
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <script type="text/javascript" src="{% static 'date-picker/moment/min/moment.min.js' %} "></script>
+        <script type="text/javascript" src="{% static 'date-picker/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %} "></script>
+        <script type="text/javascript" src="{% static 'formulario/js/mapa.js' %}"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcEPNy2nmaDLDzM9u4q3XWokUK7UVAUcA&callback=initMap&libraries=places">
+        </script>
+    </body>
+</html>

@@ -222,3 +222,10 @@ $('#definir-ruta').click(function(){
 	}
 });
 
+
+// script tablas
+
+jQuery(document).ready(function($){
+	$('.tabla').pwstabs();        
+});
+
