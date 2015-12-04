@@ -23,11 +23,6 @@
         <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
 
-        <link type="text/css" rel="stylesheet" href="{% static 'tab/pwstabs/assets/jquery.pwstabs.css' %}">
-        <script type="text/javascript" src="{% static 'tab/pwstabs/assets/jquery.pwstabs.js' %}"></script>
-
-        <link href="{% static 'formulario/css/tabla.css' %}" rel="stylesheet">
-
     
 
     </head>
@@ -45,13 +40,27 @@
                                            placeholder="Punto de origen" class="botones-fomulario" required>
                                     <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
                                 </div>
-                                <div class="tabla">
-                                    <div data-pws-tab="anynameyouwant1" data-pws-tab-name="Ruta de ida">
-                                        ida
-                                    </div>
-                                    <div data-pws-tab="anynameyouwant2" data-pws-tab-name="ruta de regreso">EL NUEVO CAMBIO
+                                
+                                
+                                <div class="panel-heading">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab1primary" data-toggle="tab">Primary 1</a></li>
+                                        <li><a href="#tab2primary" data-toggle="tab">Primary 2</a></li>
+                                        <li><a href="#tab3primary" data-toggle="tab">Primary 3</a></li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="tab1primary">Primary 1</div>
+                                        <div class="tab-pane fade" id="tab2primary">Primary 2</div>
+                                        <div class="tab-pane fade" id="tab3primary">Primary 3</div>
+                                        <div class="tab-pane fade" id="tab4primary">Primary 4</div>
+                                        <div class="tab-pane fade" id="tab5primary">Primary 5</div>
                                     </div>
                                 </div>
+            
+
+                                
                                 <div id = "puntos-div">
                                 </div>
                                 <div class="inner-addon left-addon">
