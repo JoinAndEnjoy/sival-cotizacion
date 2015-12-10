@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="{% static 'date-picker/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}" />
         <link href="{% static 'formulario/css/style.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/tabla.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
@@ -29,80 +30,93 @@
     </head>
     <body>
         <div id="map" style="height: 100%"></div>
-
         <div class="container contenedor-global">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-8 text-center">
                     <div class="container formulario-container">
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 text-center">
-                                <div class="inner-addon left-addon">
-                                    <input type="text" name="origen" id='origen'
-                                           placeholder="Punto de origen" class="botones-fomulario" required>
-                                    <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
-                                </div>
-                                
-                                <div class="panel with-nav-tabs panel-primary">
-                                    <div class="panel-heading">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#tab1primary" data-toggle="tab" id="ida">Ida</a></li>
-                                            <li><a href="#tab2primary" data-toggle="tab" id="regreso">Regreso</a></li>
-                                        </ul>
+                                <form action="{% url 'formulario:crearRuta' %}" method="post" id="form-origen">
+                                    {% csrf_token %} 
+                                    <div class="inner-addon left-addon">
+                                        <input type="text" name="origen" id='origen' placeholder="Punto de origen" class="botones-fomulario" >
+                                        <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
+                                        <i class="fa fa-exclamation iconos-validation" id="ic-origen"></i>
                                     </div>
-                                    <div class="panel-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="tab1primary">
-                                                <div id = "puntos-div"></div>
-                                                <div class="cont-a">
-                                                    <a href="#" id = "definir-ruta">Agregar puntos</a> 
+
+                                    <div class="panel with-nav-tabs panel-primary">
+                                        <div class="panel-heading">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a href="#tab1primary" data-toggle="tab" id="ida">Ida</a></li>
+                                                <li><a href="#tab2primary" data-toggle="tab" id="regreso">Regreso</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade in active" id="tab1primary">
+                                                    <div id = "puntos-div"></div>
+                                                    <div class="cont-a">
+                                                        <div class="inner-addon left-addon">
+                                                            <input type="text" name="fecha" id="fecha1" placeholder="Fecha de salida" class="botones-fomulario"  />
+                                                            <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
+                                                            <i class="fa fa-exclamation iconos-validation" id="ic-fecha"></i>
+                                                            <script type="text/javascript">
+                                                                $(function () {
+                                                                $('#fecha1').datetimepicker({
+                                                                viewMode: 'days',
+                                                                        format: 'DD/MM/YYYY'
+                                                                });
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                        <a href="#" id = "definir-ruta">Agregar puntos</a> 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="tab2primary">
-                                                <div id = "puntos-div-regreso"></div>
-                                                <div class="cont-a">
-                                                    <a href="#" id = "definir-ruta-regreso">Agregar puntos</a> 
+                                                <div class="tab-pane fade" id="tab2primary">
+                                                    <div id = "puntos-div-regreso"></div>
+                                                    <div class="inner-addon left-addon">
+                                                        <input type="text" name="fecha" id="fecha2" placeholder="Fecha de salida" class="botones-fomulario"/>
+                                                        <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
+                                                        <script type="text/javascript">
+                                                            $(function () {
+                                                            $('#fecha2').datetimepicker({
+                                                            viewMode: 'days',
+                                                                    format: 'DD/MM/YYYY'
+                                                            });
+                                                            });
+                                                        </script>
+                                                    </div>
+                                                    <div class="cont-a">
+                                                        <a href="#" id = "definir-ruta-regreso">Agregar puntos</a> 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div class="inner-addon left-addon">
+                                        <input type="text" name="destino" id="destino"
+                                               placeholder="Punto de destino" class="botones-fomulario"
+                                               > 
+                                        <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
+                                        <i class="fa fa-exclamation iconos-validation" id="ic-destino"></i>
+                                    </div>
+                                    <div class="inner-addon left-addon">
+                                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="botones-fomulario" > 
+                                        <i class="glyphicon glyphicon-user mis-iconos"></i>
+                                        <i class="fa fa-exclamation iconos-validation" id="ic-nombre"></i>
+                                    </div>
+                                    <div class="inner-addon left-addon">
+
+                                        <input type="email" name="email" id="email" placeholder="Email" class="botones-fomulario" >
+                                        <i class="glyphicon glyphicon-envelope mis-iconos"></i>
+                                        <i class="fa fa-exclamation iconos-validation" id="ic-email"></i>
+                                    </div>
+                                    <textarea rows="4" cols="50" placeholder="Comentarios " id="comentarios" class="botones-fomulario" resize = "false"></textarea>
+                                    <input type="submit" value="Enviar" class="btn-enviar" />
+                                </form>
                                 
-                                <div class="inner-addon left-addon">
-
-                                    <input type="text" name="destino" id="destino"
-                                           placeholder="Punto de destino" class="botones-fomulario"
-                                           required> 
-                                    <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
-                                </div>
                                 
-                                <div class="inner-addon left-addon">
-
-                                    <input type="text" name="fecha" id="fecha"
-                                           placeholder="Fecha de salida" class="botones-fomulario" required />
-                                    <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
-                                    <script type="text/javascript">
-                                        $(function () {
-                                        $('#fecha').datetimepicker({
-                                        viewMode: 'days',
-                                                format: 'DD/MM/YYYY'
-                                        });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="inner-addon left-addon">
-                                    <input type="text" name="nombre" id="nombre"
-                                           placeholder="Nombre" class="botones-fomulario" required> 
-                                    <i class="glyphicon glyphicon-user mis-iconos"></i> 
-                                </div>
-                                <div class="inner-addon left-addon">
-
-                                    <input type="email" name="email" id="email" placeholder="Email"
-                                           class="botones-fomulario" required>
-                                    <i class="glyphicon glyphicon-envelope mis-iconos"></i>
-                                </div>
-                                <textarea rows="4" cols="50" placeholder="Comentarios "
-                                          class="botones-fomulario" resize = "false"></textarea>
-                                <input type="submit" value="Enviar" class="btn-enviar" />
                             </div>
                         </div>
                     </div>

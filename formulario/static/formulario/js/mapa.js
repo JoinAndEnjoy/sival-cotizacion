@@ -34,7 +34,7 @@ function initMap()
     {
         internalmark.push(undefined);
     }
-    
+
     for (i = 0; i < 8; i++)
     {
         internalmark2.push(undefined);
@@ -160,11 +160,11 @@ function calcRoute() {
 
     waypts = [];
     var intep;
-    if(inicio)
+    if (inicio)
         intep = internalmark;
     else
         intep = internalmark2;
-    
+
     intep.forEach(function (punto) {
         if (punto !== undefined)
         {
@@ -175,18 +175,26 @@ function calcRoute() {
         }
 
     });
-    var start = markers[0].position;
-    var end = markers2[0].position;
+    var start;
+    var end;
+    if (inicio)
+    {
+        start = markers[0].position;
+        end = markers2[0].position;
+    } else
+    {
+        end = markers[0].position;
+        start = markers2[0].position;
+    }
     var request = {
         origin: start,
         destination: end,
         waypoints: waypts,
         optimizeWaypoints: true,
-        travelMode: google.maps.TravelMode.DRIVING,
-        provideRouteAlternatives: true
+        travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function (result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
+        if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
             eliminarMarks();
         }
@@ -207,7 +215,7 @@ function eliminarMarks()
         if (marker !== undefined)
             marker.setMap(null);
     });
-    
+
     internalmark2.forEach(function (marker) {
         if (marker !== undefined)
             marker.setMap(null);
@@ -279,4 +287,238 @@ $('#regreso').click(function () {
     inicio = false;
     calcRoute();
 });
+
+
+
+// coge el post del formulario
+$('#form-origen').on('submit', function (event) {
+    event.preventDefault();
+    console.log("form submitted!");  // sanity check
+    var vector = validacionCampos();
+    if(vector!==undefined)
+        create_post(vector);
+});
+
+
+
+$("#nombre").change(function () {
+    if (!(!$("#nombre").val()))
+    {
+        $('#ic-nombre').css("opacity", "0");
+        $("#nombre").removeAttr('style');
+    }
+
+});
+
+$("#email").change(function () {
+    if (!(!$("#email").val()))
+    {
+        $('#ic-email').css("opacity", "0");
+        $("#email").removeAttr('style');
+    }
+
+});
+
+$("#fecha1").bind( "click", function () {
+    if (!(!$("#fecha1").val()))
+    {
+        $('#ic-fecha').css("opacity", "0");
+        $("#fecha1").removeAttr('style');
+    }
+
+});
+
+$("#origen").change(function () {
+    if (!(!$("#origen").val()))
+    {
+        $('#ic-origen').css("opacity", "0");
+        $("#origen").removeAttr('style');
+    }
+
+});
+
+$("#destino").change(function () {
+    if (!(!$("#destino").val()))
+    {
+        $('#ic-destino').css("opacity", "0");
+        $("#destino").removeAttr('style');
+    }
+
+});
+//validacion de los campos del formilario
+function validacionCampos()
+{
+    var fechaSalida = $('#fecha1');
+    var fechaRegreso = $('#fecha2').val();
+    var ruta1 = conversor(markers[0], internalmark, markers2[0]);
+    var ruta2 = conversor(markers2[0], internalmark2, markers[0]);
+    var email = $('#email');
+    var nombre = $('#nombre');
+    var punto1 = $('#origen');
+    var punto2 = $('#destino');
+    var termino = true;
+    
+    if(!punto1.val())
+    {
+        punto1.css("border", "1px solid #2e3436");
+        $('#ic-origen').css("opacity", "1");
+        termino = false;
+    }
+    if(!punto2.val())
+    {
+        punto2.css("border", "1px solid #2e3436");
+        $('#ic-destino').css("opacity", "1");
+        termino = false;
+    }
+    if(!nombre.val())
+    {
+        nombre.css("border", "1px solid #2e3436");
+        $('#ic-nombre').css("opacity", "1");
+        termino = false;
+    }
+    if(!fechaSalida.val())
+    {
+        fechaSalida.css("border", "1px solid #2e3436");
+        $('#ic-fecha').css("opacity", "1");
+        termino = false;
+    }
+    if(!email.val())
+    {
+        email.css("border", "1px solid #2e3436");
+        $('#ic-email').css("opacity", "1");
+        termino = false;
+    }
+    else if(!validator(email.val()))
+    {
+        alert('Correo no valido');
+        termino = false;
+    }
+    
+    if (termino)
+    {
+        var respuesta = {
+            rutaIda: ruta1,
+            rutaVenida: ruta2,
+            salida: fechaSalida.val(),
+            regreso: fechaRegreso,
+            nombre: nombre.val(),
+            correo: email.val(),
+            comentarios: $('#comentarios').val()
+        };
+        
+        return JSON.stringify(respuesta);
+    }
+    else
+        return undefined;
+}
+
+
+// mapea los markes a posiciones
+function conversor(punto1, vector, punto2)
+{
+	var ind = vector.slice();
+	ind.splice(0, 0, punto1);
+	ind.splice(ind.length, 0, punto2);
+    var s = [];
+    ind.forEach(function (punto) {
+        if (punto !== undefined)
+            s.push({
+                nombre: punto.title,
+                posicion: punto.position
+            });
+    });
+    return JSON.stringify(s);
+}
+
+function validator(sEmail)
+{
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail))
+        return true;
+    else
+        return false;
+}
+
+
+//AJAX for posting
+function create_post(vector) {
+    console.log("vector: " + vector); // sanity check
+    
+
+    $.ajax({
+        url: "/crear/", // the endpoint
+        type: "POST", // http method
+        data: {info : vector}, // data sent with the post request
+
+        // handle a successful response
+        success: function (mensaje) {
+            //doshow();
+        }
+
+        // handle a non-successful response
+//		error : function(xhr,errmsg,err) {
+//		$('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+//		" <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+//		console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+//		}
+    });
+}
+;
+
+
+
+
+// ajax metodos
+
+
+//This function gets cookie with a given name
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+/*
+ The functions below will create a header with csrftoken
+ */
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+function sameOrigin(url) {
+    // test that a given url is a same-origin URL
+    // url could be relative or scheme relative or absolute
+    var host = document.location.host; // host + port
+    var protocol = document.location.protocol;
+    var sr_origin = '//' + host;
+    var origin = protocol + sr_origin;
+    // Allow absolute or scheme relative URLs to same origin
+    return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+            // or any other URL that isn't scheme relative or absolute i.e relative.
+            !(/^(\/\/|http:|https:).*/.test(url));
+}
+
+$.ajaxSetup({
+    beforeSend: function (xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+            // Send the token to same-origin, relative URLs only.
+            // Send the token only if the method warrants CSRF protection
+            // Using the CSRFToken value acquired earlier
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+})
 

@@ -298,3 +298,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
+
+.iconos-validation{
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    opacity: 0;
+}

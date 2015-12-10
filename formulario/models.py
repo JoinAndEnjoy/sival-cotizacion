@@ -1,7 +1,36 @@
 from django.db import models
 
+
 # Create your models here.
 
-class Ruta(models.Model):
-    origen = models.CharField(max_length=200)
-    destino = models.CharField(max_length=200)
+class Cotizacion(models.Model):
+    nombre = models.CharField(max_length=200)
+    correo = models.EmailField(max_length=254)
+    comentarios = models.CharField(max_length=400)
+    salida = models.DateField()
+    regreso = models.DateField(null=True)
+    fecha = models.DateField(auto_now_add=True)
+    def __unicode__(self):  # __unicode__ on Python 2
+        return self.nombre % "%s - " %self.fecha
+    
+class Punto(models.Model):
+    nombre = models.CharField(max_length=200)
+    lat = models.DecimalField(max_digits=10, decimal_places=7)
+    lng = models.DecimalField(max_digits=10, decimal_places=7)
+    secuencia = models.IntegerField()
+    CHOICES = (
+                ('OR', 'origen'),
+                ('DS', 'destino'),
+    )
+    camino = models.CharField(max_length=2, choices=CHOICES)
+    cotizacion= models.ForeignKey(Cotizacion,on_delete=models.CASCADE)
+    def __unicode__(self):              # __unicode__ on Python 2
+        return self.nombre  
+
+class Paraa(models.Model):
+    nombre = models.CharField(max_length=200)
+    correo = models.EmailField(max_length=254)
+
+class pepe(models.Model):
+    nombre = models.CharField(max_length=200)
+    correo = models.EmailField(max_length=254)

@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Ruta
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 from django.template.context_processors import request
+import json
 # Create your views here.
 
 def index(request):
@@ -11,8 +11,10 @@ def index(request):
     return render(request, 'index.html', context)
 
 def crearRuta(request):
-    rutan = Ruta(origen=request.POST['dato1'], destino=request.POST['dato2'])
-    rutan.save()
+    infomacion = request.POST['info']
+    dato = json.loads(infomacion)
+    vv = dato['rutaIda']
+    
     return HttpResponse("ruta guardada")
 
 def verMapa(request):
