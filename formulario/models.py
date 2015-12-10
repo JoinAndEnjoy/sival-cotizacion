@@ -11,7 +11,7 @@ class Cotizacion(models.Model):
     regreso = models.DateField(null=True)
     fecha = models.DateField(auto_now_add=True)
     def __unicode__(self):  # __unicode__ on Python 2
-        return self.nombre % "%s - " %self.fecha
+        return (self.nombre + " / %s")%(str(self.fecha))
     
 class Punto(models.Model):
     nombre = models.CharField(max_length=200)
