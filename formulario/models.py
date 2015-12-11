@@ -27,10 +27,4 @@ class Punto(models.Model):
     def __unicode__(self):              # __unicode__ on Python 2
         return self.nombre  
 
-class Paraa(models.Model):
-    nombre = models.CharField(max_length=200)
-    correo = models.EmailField(max_length=254)
 
-class pepe(models.Model):
-    nombre = models.CharField(max_length=200)
-    correo = models.EmailField(max_length=254)
