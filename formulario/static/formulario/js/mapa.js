@@ -230,13 +230,27 @@ $("#fecha").focusout(function () {
     $("#icono-fecha").css("color", "#b6b6b6");
 });
 
+function cambio()
+{
+    var anch = $('.punto-int').width();
+    $('#cont1').width(anch);
+}
+
+function cambio2()
+{
+    var ancho2 = $('#conttt').width();
+    $('#cont2').width( ancho2);
+}
+
+
 $('#definir-ruta').click(function () {
+    
     numPun++;
     if (numPun < 9)
     {
         $('#puntos-div').css("display", "block");
         $('#puntos-div').append("<div class = 'punto-int'>\
-				<div class='inner-addon left-addon'>\
+				<div class='inner-addon left-addon' >\
 				<input type='text' name='origen' id='intermedio" + numPun + "'\
 				placeholder='Punto intermedio " + numPun + "' class='botones-fomulario punto-int-input' required>\
 				<i class='glyphicon glyphicon-map-marker mis-iconos'></i> \
@@ -252,6 +266,7 @@ $('#definir-ruta').click(function () {
     {
         alert("No se pueden definir más puntos")
     }
+    cambio();
 });
 
 $('#definir-ruta-regreso').click(function () {
@@ -260,10 +275,12 @@ $('#definir-ruta-regreso').click(function () {
     {
         $('#puntos-div-regreso').css("display", "block");
         $('#puntos-div-regreso').append("<div class = 'punto-int'>\
-				<div class='inner-addon left-addon'>\
+				<div id='conttt'>\
+                                <div class='inner-addon left-addon'>\
 				<input type='text' name='origen' id='intermedio2" + numPun2 + "'\
 				placeholder='Punto intermedio " + numPun2 + "' class='botones-fomulario punto-int-input' required>\
-				<i class='glyphicon glyphicon-map-marker mis-iconos'></i> \
+				<i class='glyphicon glyphicon-map-marker mis-iconos'></i>\
+                                </div>\
 		</div>");
 
         $('#puntos-div-regreso').animate({
@@ -276,6 +293,7 @@ $('#definir-ruta-regreso').click(function () {
     {
         alert("No se pueden definir más puntos");
     }
+    cambio2();
 });
 
 $('#ida').click(function () {
@@ -293,7 +311,6 @@ $('#regreso').click(function () {
 // coge el post del formulario
 $('#form-origen').on('submit', function (event) {
     event.preventDefault();
-    console.log("form submitted!");  // sanity check
     var vector = validacionCampos();
     if(vector!==undefined)
         create_post(vector);
@@ -442,9 +459,6 @@ function validator(sEmail)
 
 //AJAX for posting
 function create_post(vector) {
-    console.log("vector: " + vector); // sanity check
-    
-
     $.ajax({
         url: "/crear/", // the endpoint
         type: "POST", // http method
@@ -452,7 +466,14 @@ function create_post(vector) {
 
         // handle a successful response
         success: function (mensaje) {
-            //doshow();
+            swal({
+                customClass: "modal",
+                title: "Formulario enviado exitosamente",
+                text: "¡hola "+$('#nombre').val()+"! <br><br> Revisaremos tu solicitud y te enviaremos nuestra cotización cuanto antes a tu correo: <div class='correo'> "+$('#email').val()+"</div>" ,
+                type: "success",
+                confirmButtonText: "Aceptar",
+                html: true
+            });
         }
 
         // handle a non-successful response

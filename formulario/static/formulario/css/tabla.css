@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 4/12/2015, 03:39:56 PM
+    Created on : 11/12/2015, 04:07:00 PM
     Author     : jose
 */
 .panel-primary {
@@ -33,4 +33,9 @@ and open the template in the editor.
     margin-bottom: 13px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+}
+
+.panel-body input
+{
+    border: 1px solid #B6B6B6;
 }

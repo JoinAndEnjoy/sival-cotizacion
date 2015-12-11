@@ -133,18 +133,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .formulario-container{
-    max-height: 564px;
     padding-bottom: 17px;
     width: 75%;
     background-color: #fd9164;
     position: absolute;
     top: 5%;
-    right: 4%;
+    right: 15%;
     padding-top: 20px;
     padding-left: 0px;
     padding-right: 0px;
-    margin-top: 30px;
-    margin-right: 30px;
+    margin-top: 5%;
     -webkit-box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
 }
@@ -165,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 .botones-fomulario
 {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid white;
     -webkit-border-radius: 3px;
     border-radius: 2px;
@@ -266,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .punto-int{
-    width: 85%;
+    width: 100%;
     margin-left: auto;
 }
 
@@ -309,4 +307,10 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     opacity: 0;
+}
+
+hr
+{
+    margin-top: 2px;
+    margin-bottom: 5px;
 }

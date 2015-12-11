@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import RequestContext
-from django.template.context_processors import request
 from .models import *
 import json
 import datetime
-from OpenGL.wrapper import NULL
+
 # Create your views here.
 
 def index(request):
@@ -44,9 +42,6 @@ def crearRuta(request):
         punto.cotizacion = cot
         punto.nombre = value.get('nombre')
         punto.save()
-    
-        
-    
     return HttpResponse("ruta guardada")
 
 def verMapa(request):

@@ -21,9 +21,12 @@
         <link href="{% static 'formulario/css/style.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/tabla.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="{% static 'sweetalert/dist/sweetalert.css' %}" rel="stylesheet">
+        <link href="{% static 'formulario/css/modal.css' %}" rel="stylesheet">
 
         <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sweetalert/dist/sweetalert.min.js' %}"></script>
 
     
 
@@ -54,10 +57,14 @@
                                         <div class="panel-body">
                                             <div class="tab-content">
                                                 <div class="tab-pane fade in active" id="tab1primary">
-                                                    <div id = "puntos-div"></div>
+                                                    <div id="intenalponint">
+                                                        <div id = "puntos-div">                                                        
+                                                        </div>                                                            
+                                                    </div>
+                                                    <hr>
                                                     <div class="cont-a">
-                                                        <div class="inner-addon left-addon">
-                                                            <input type="text" name="fecha" id="fecha1" placeholder="Fecha de salida" class="botones-fomulario"  />
+                                                        <div class="inner-addon left-addon" id="cont1">
+                                                            <input type="text" name="fecha" id="fecha1" placeholder="Fecha de salida" class="botones-fomulario" style="margin-bottom: 0px" />
                                                             <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
                                                             <i class="fa fa-exclamation iconos-validation" id="ic-fecha"></i>
                                                             <script type="text/javascript">
@@ -74,8 +81,9 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="tab2primary">
                                                     <div id = "puntos-div-regreso"></div>
-                                                    <div class="inner-addon left-addon">
-                                                        <input type="text" name="fecha" id="fecha2" placeholder="Fecha de salida" class="botones-fomulario"/>
+                                                    <hr>
+                                                    <div class="inner-addon left-addon" id="cont2">
+                                                        <input type="text" name="fecha" id="fecha2" placeholder="Fecha de salida" class="botones-fomulario" style="margin-bottom: 0px"/>
                                                         <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
                                                         <script type="text/javascript">
                                                             $(function () {
