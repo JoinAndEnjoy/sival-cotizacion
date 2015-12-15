@@ -374,6 +374,7 @@ function validacionCampos()
     var punto1 = $('#origen');
     var punto2 = $('#destino');
     var termino = true;
+    var condicion = $("input[type='radio'][name='switch']:checked").val();
     
     if(!punto1.val())
     {
@@ -420,7 +421,8 @@ function validacionCampos()
             regreso: fechaRegreso,
             nombre: nombre.val(),
             correo: email.val(),
-            comentarios: $('#comentarios').val()
+            comentarios: $('#comentarios').val(),
+            ruta :condicion
         };
         
         return JSON.stringify(respuesta);
@@ -467,7 +469,7 @@ function create_post(vector) {
         // handle a successful response
         success: function (mensaje) {
             swal({
-                customClass: "modal",
+                customClass: "mi-modal",
                 title: "Formulario enviado exitosamente",
                 text: "¡hola "+$('#nombre').val()+"! <br><br> Revisaremos tu solicitud y te enviaremos nuestra cotización cuanto antes a tu correo: <div class='correo'> "+$('#email').val()+"</div>" ,
                 type: "success",

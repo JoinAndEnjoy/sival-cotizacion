@@ -17,6 +17,7 @@ def crearRuta(request):
     cot.nombre = dicconario.get('nombre')
     cot.correo = dicconario.get('correo')
     cot.comentarios = dicconario.get('comentarios')
+    cot.camino = dicconario.get('ruta')
     cot.salida =datetime.datetime.strptime(dicconario.get('salida'), "%d/%m/%Y").strftime('%Y-%m-%d')
     if dicconario.get('regreso')!= "":
         cot.regreso = datetime.datetime.strptime(dicconario.get('regreso'), "%d/%m/%Y").strftime('%Y-%m-%d')

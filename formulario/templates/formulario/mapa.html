@@ -22,7 +22,9 @@
         <link href="{% static 'formulario/css/tabla.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="{% static 'sweetalert/dist/sweetalert.css' %}" rel="stylesheet">
+        <link href="{% static 'formulario/css/switch.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/modal.css' %}" rel="stylesheet">
+        
 
         <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
@@ -120,11 +122,22 @@
                                         <i class="glyphicon glyphicon-envelope mis-iconos"></i>
                                         <i class="fa fa-exclamation iconos-validation" id="ic-email"></i>
                                     </div>
+                                    
+                                    
+                                    <div class="container-s">
+                                        <div class="switch white">
+                                            <input type="radio" name="switch" id="switch-off" value="1">
+                                            <input type="radio" name="switch" id="switch-on" value="2"checked>
+                                            <label for="switch-off">Solo_ida</label>
+                                            <label for="switch-on">Ida-regreso</label>
+                                            <span class="toggle"></span>
+                                        </div> 
+                                    </div> 
+                                    
+                                    
                                     <textarea rows="4" cols="50" placeholder="Comentarios " id="comentarios" class="botones-fomulario" resize = "false"></textarea>
                                     <input type="submit" value="Enviar" class="btn-enviar" />
                                 </form>
-                                
-                                
                             </div>
                         </div>
                     </div>
