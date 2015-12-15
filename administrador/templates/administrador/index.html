@@ -1,0 +1,251 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es" class="">
+<head>
+  <meta charset="utf-8" />
+  <title>Html version | Angulr</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <link href="{% static 'administrador/libs/assets/animate.css/animate.css' %}" rel="stylesheet">
+  <link href="{% static 'administrador/libs/assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'administrador/libs/assets/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'administrador/libs/jquery/bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
+  
+  <link href="{% static 'administrador/css/font.css' %}" rel="stylesheet">
+  <link href="{% static 'administrador/css/app.css' %}" rel="stylesheet">
+  <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
+ 
+
+
+</head>
+<body>
+<div class="app app-header-fixed ">
+  
+
+    <!-- header -->
+  <header id="header" class="app-header navbar" role="menu">
+      <!-- navbar header -->
+      <div class="navbar-header bg-dark">
+        <!-- brand -->
+        <a href="#/" class="navbar-brand text-lt logo">
+          <span class="hidden-folded m-l-xs ">Sival</span>
+        </a>
+        <!-- / brand -->
+      </div>
+      <!-- / navbar header -->
+
+      <!-- navbar collapse -->
+      <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+        <!-- buttons -->
+        <div class="nav navbar-nav hidden-xs">
+          <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="app-aside-folded" target=".app">
+            <i class="fa fa-dedent fa-fw text"></i>
+            <i class="fa fa-indent fa-fw text-active"></i>
+          </a>
+          
+        </div>
+        
+        <div class=" navbar-nav titulo">
+            <h1>Panel principal</h1>
+        </div>
+        <!-- / buttons -->
+
+        <!-- link and dropdown -->
+       
+        <!-- / link and dropdown -->
+
+        <!-- search form -->
+        
+        <!-- / search form -->
+
+        <!-- nabar right -->
+      
+        <!-- / navbar right -->
+      </div>
+      <!-- / navbar collapse -->
+  </header>
+  <!-- / header -->
+
+
+    <!-- aside -->
+  <aside id="aside" class="app-aside hidden-xs bg-dark aside-personal">
+      <div class="aside-wrap">
+        <div class="navi-wrap">
+          <!-- user -->
+          <div class="clearfix hidden-xs text-center hide" id="aside-user">
+            <div class="dropdown wrapper">
+              <a href="app.page.profile">
+                <span class="thumb-lg w-auto-folded avatar m-t-sm">
+                  <img src="/static/administrador/img/a0.jpg" class="img-full" alt="...">
+                </span>
+              </a>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded">
+                <span class="clear">
+                  <span class="block m-t-sm">
+                    <strong class="font-bold text-lt">John.Smith</strong> 
+                    <b class="caret"></b>
+                  </span>
+                  <span class="text-muted text-xs block">Art Director</span>
+                </span>
+              </a>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animated fadeInRight w hidden-folded">
+                <li class="wrapper b-b m-b-sm bg-info m-t-n-xs">
+                  <span class="arrow top hidden-folded arrow-info"></span>
+                  <div>
+                    <p>300mb of 500mb used</p>
+                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>
+                  </div>
+                </li>
+                <li>
+                  <a href>Settings</a>
+                </li>
+                <li>
+                  <a href="page_profile.html">Profile</a>
+                </li>
+                <li>
+                  <a href>
+                    <span class="badge bg-danger pull-right">3</span>
+                    Notifications
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="page_signin.html">Logout</a>
+                </li>
+              </ul>
+              <!-- / dropdown -->
+            </div>
+            <div class="line dk hidden-folded"></div>
+          </div>
+          <!-- / user -->
+
+          <!-- nav -->
+          <nav ui-nav class="navi clearfix">
+            <ul class="nav">
+              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>Navigation</span>
+              </li>
+              <li>
+                <a href class="auto">      
+                  <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                  <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+                  <span class="font-bold">Dashboard</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a href>
+                      <span>Dashboard</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="index.html">
+                      <span>Dashboard v1</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="dashboard.html">
+                      <b class="label bg-info pull-right">N</b>
+                      <span>Dashboard v2</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="mail.html">
+                  <b class="badge bg-info pull-right">9</b>
+                  <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
+                  <span class="font-bold">Email</span>
+                </a>
+              </li>
+              <li class="line dk"></li>
+            </ul>
+          </nav>
+          <!-- nav -->
+
+          <!-- aside footer -->
+         
+          <!-- / aside footer -->
+        </div>
+      </div>
+  </aside>
+  <!-- / aside -->
+
+
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+  	<div class="app-content-body ">
+	    
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Solicitudes pendientes
+    </div>
+    <div class="table-responsive">
+      <table ui-jq="dataTable" ui-options="{
+          sAjaxSource: '/static/administrador/api/datatable.json',
+          aoColumns: [
+            { mData: 'engine' },
+            { mData: 'browser' },
+            { mData: 'platform' },
+            { mData: 'version' },
+            { mData: 'grade' }
+          ]
+        }" class="table table-striped b-t b-b">
+        <thead>
+          <tr>
+            <th  style="width:20%">Rendering engine</th>
+            <th  style="width:25%">Browser</th>
+            <th  style="width:25%">Platform(s)</th>
+            <th  style="width:15%">Engine version</th>
+            <th  style="width:15%">CSS grade</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+	</div>
+  </div>
+  <!-- /content -->
+  
+  <!-- footer -->
+  <footer id="footer" class="app-footer" role="footer">
+    <div class="wrapper b-t bg-light">
+      <span class="pull-right">2.1.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+      &copy; 2015 Copyright.
+    </div>
+  </footer>
+  <!-- / footer -->
+
+
+
+</div>
+
+
+<script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery/dist/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/libs/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/ui-load.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/ui-jp.config.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/ui-jp.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/ui-nav.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery.easy-pie-chart/dist/jquery.easypiechart.fill.js' %}"></script>
+
+
+
+</body>
+</html>
