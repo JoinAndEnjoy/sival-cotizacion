@@ -1,76 +1,316 @@
 /* FONTS */
-
-
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 
-@-webkit-keyframes fade-in {
-    0%   { opacity: 0; }
-    50%   { opacity: 0; }
-    100% { opacity: 1; }
-}
+@-webkit-keyframes fade-in { 0% {opacity: 0;}50%{opacity:0;}100%{opacity:1;}}
+
+
+/*html {
+        background: url(../img/fondo.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cove 	 	r;
+        background-size: cover;
+        height: 100%;
+}*/
 
 body {
- 	 background-color: #f2f2f2;
+    background-color: #f2f2f2;
     font-family: "Lato";
     font-weight: 300;
     font-size: 16px;
     color: #333;
-
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
     /*
-    -webkit-animation-name: fade-in;
-    -webkit-animation-duration: 2s;*/
+-webkit-animation-name: fade-in;
+-webkit-animation-duration: 2s;*/
+}
+
+.primal {
+    position: absolute;
+    width: 100%;
 }
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Lato";
     font-weight: 300;
-    color: #333;
+    color: #ffffff;
 }
 
-.btn-enviar{
-	width:100%;
-	background-color: #3498db;
-	border: none !important;
-	border-color: black;
-	padding-top:10px !important;
-	padding-bottom:10px !important;
-	
-	-webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
+.btn-enviar {
+    width: 100%;
+    background-color: #2e3436;
+    border: none !important;
+    padding-top: 8px !important;
+    padding-bottom: 10px !important;
+    -webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
     -moz-transition: color 0.15s ease-in, background 0.15s ease-in;
     -ms-transition: color 0.15s ease-in, background 0.15s ease-in;
     -o-transition: color 0.15s ease-in, background 0.15s ease-in;
     transition: color 0.15s ease-in, background 0.15s ease-in;
-    font-size:13px;
+    font-size: 11px;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 2px;
+    border-radius: 0px;
+    color: white !important;
 }
 
-.contenedor h1{
-	font-size: 25px;
-	margin-top: -5px;
-	margin-bottom: 15px;
-	font-weight: 300;
+.contenedor h1 {
+    font-size: 15px;
+    margin-top: -5px;
+    margin-bottom: 35px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 18px;
 }
 
-.btn-enviar:hover{
-	background-color: #2980b9;
+.btn-enviar:hover {
+    background-color: #555753;
 }
 
-.input-enviar{
-	margin-bottom: 10px;
+
+
+.input-enviar {
+    margin-top: 20px;
 }
 
-.contenedor{
-	background-color: white;
-	margin-top: 170px;
-	padding: 20px;
-	border-radius: 5px;
-	
-	-webkit-box-shadow: 0px 0px 22px -1px rgba(0,0,0,0.21);
--moz-box-shadow: 0px 0px 22px -1px rgba(0,0,0,0.21);
-box-shadow: 0px 0px 22px -1px rgba(0,0,0,0.21);
+.contenedor {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 25%;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
+    box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.21);
+    border-radius: 0px
+}
+
+.mensaje {
+    display: none;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #74e361;
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    -webkit-box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.3);
+    color:white;
+}
+
+.mensaje a
+{
+    color: white;
+}
+
+.enjoy-css {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none !important;
+    border-radius: 0px;
+    background-color: transparent;
+    color: white;
+}
+
+.enjoy-css:focus {
+    border-color: white;
+}
+
+.enjoy-css::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+.formulario-container{
+    padding-bottom: 17px;
+    width: 75%;
+    background-color: #fd9164;
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    padding-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 5%;
+    -webkit-box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cont-a
+{
+    text-align: center;       
+}
+
+.cont-a a{
+    color: black !important;
+}
+
+.cont-a a:hover{
+    background-color: #b6b6b6;
+    text-decoration: none;
+}
+.botones-fomulario
+{
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    -webkit-border-radius: 3px;
+    border-radius: 2px;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.glyphicon{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.formulario-container input
+{
+    height: 30px;
+    font-size: 14px;
+    color: #2e3436;
+    font-weight: 400;
+}
+
+.formulario-container input:focus + .glyphicon{
+    color: #2e3436;
+}
+
+.formulario-container input::-webkit-input-placeholder
+{
+    font-size:14px;
+}
+
+.formulario-container textarea
+{
+    padding-left: 10px;
+    resize: none;
+}
+
+.formulario-container a
+{
+    color:white;
+    font-size: 11px;
+    border: 0 solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    font-weight: 500;
+}
+
+
+
+.contenedor-global
+{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+
+
+/* estilos de los iconos
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.mis-iconos {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+    color: #b6b6b6;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.left-addon .glyphicon {
+    left: -2px;
+    top: -1px;
+    font-size: 13px;
+}
+
+
+.botones-fomulario:focus{
+    outline: none;
+    border:1px solid #2e3436;
+}
+
+.punto-int{
+    width: 100%;
+    margin-left: auto;
+}
+
+#puntos-div{
+    display: table-row;
+    max-height: 100px;
+    overflow-y: scroll;
+    display: none;
+}
+
+#puntos-div-regreso{
+    display: table-row;
+    max-height: 100px;
+    overflow-y: scroll;
+    display: none;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.punto-int-input{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+.iconos-validation{
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    opacity: 0;
+}
+
+hr
+{
+    margin-top: 2px;
+    margin-bottom: 5px;
 }

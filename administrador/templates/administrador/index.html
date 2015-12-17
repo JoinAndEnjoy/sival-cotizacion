@@ -12,10 +12,12 @@
   <link href="{% static 'administrador/libs/assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
   <link href="{% static 'administrador/libs/assets/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
   <link href="{% static 'administrador/libs/jquery/bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
+
   
   <link href="{% static 'administrador/css/font.css' %}" rel="stylesheet">
   <link href="{% static 'administrador/css/app.css' %}" rel="stylesheet">
   <link href="{% static 'administrador/css/tabla.css' %}" rel="stylesheet">  
+  <link href="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
 
 
@@ -100,7 +102,7 @@
     </div>
     <div class="table-responsive">
         
-        <table id='tabla-datos'class="table table-striped b-t b-b">
+        <table  id='tabla-datos'class="table table-striped b-t b-b" > 
             <thead>
                 <tr>
                     <th  style="width:10%">Nombre</th>
@@ -137,6 +139,8 @@
 
 
 <script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery/dist/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/libs/jquery/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/libs/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/ui-load.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/ui-jp.config.js' %}"></script>
@@ -144,7 +148,6 @@
 <script type="text/javascript" src="{% static 'administrador/js/ui-nav.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/libs/jquery/datatables/media/js/jquery.dataTables.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
 
 

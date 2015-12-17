@@ -6,6 +6,7 @@
 
 
 $(document).ready(function () {
+    
     $('#tabla-datos').DataTable(
             {
                 "ajax": {
