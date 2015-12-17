@@ -15,8 +15,9 @@
   
   <link href="{% static 'administrador/css/font.css' %}" rel="stylesheet">
   <link href="{% static 'administrador/css/app.css' %}" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.10/css/dataTables.jqueryui.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css" rel="stylesheet">
   <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
- 
 
 
 </head>
@@ -39,30 +40,10 @@
       <!-- navbar collapse -->
       <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
         <!-- buttons -->
-        <div class="nav navbar-nav hidden-xs">
-          <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="app-aside-folded" target=".app">
-            <i class="fa fa-dedent fa-fw text"></i>
-            <i class="fa fa-indent fa-fw text-active"></i>
-          </a>
-          
-        </div>
         
         <div class=" navbar-nav titulo">
             <h1>Panel principal</h1>
         </div>
-        <!-- / buttons -->
-
-        <!-- link and dropdown -->
-       
-        <!-- / link and dropdown -->
-
-        <!-- search form -->
-        
-        <!-- / search form -->
-
-        <!-- nabar right -->
-      
-        <!-- / navbar right -->
       </div>
       <!-- / navbar collapse -->
   </header>
@@ -74,98 +55,28 @@
       <div class="aside-wrap">
         <div class="navi-wrap">
           <!-- user -->
-          <div class="clearfix hidden-xs text-center hide" id="aside-user">
-            <div class="dropdown wrapper">
-              <a href="app.page.profile">
-                <span class="thumb-lg w-auto-folded avatar m-t-sm">
-                  <img src="/static/administrador/img/a0.jpg" class="img-full" alt="...">
-                </span>
-              </a>
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded">
-                <span class="clear">
-                  <span class="block m-t-sm">
-                    <strong class="font-bold text-lt">John.Smith</strong> 
-                    <b class="caret"></b>
-                  </span>
-                  <span class="text-muted text-xs block">Art Director</span>
-                </span>
-              </a>
-              <!-- dropdown -->
-              <ul class="dropdown-menu animated fadeInRight w hidden-folded">
-                <li class="wrapper b-b m-b-sm bg-info m-t-n-xs">
-                  <span class="arrow top hidden-folded arrow-info"></span>
-                  <div>
-                    <p>300mb of 500mb used</p>
-                  </div>
-                  <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>
-                  </div>
-                </li>
-                <li>
-                  <a href>Settings</a>
-                </li>
-                <li>
-                  <a href="page_profile.html">Profile</a>
-                </li>
-                <li>
-                  <a href>
-                    <span class="badge bg-danger pull-right">3</span>
-                    Notifications
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="page_signin.html">Logout</a>
-                </li>
-              </ul>
-              <!-- / dropdown -->
-            </div>
-            <div class="line dk hidden-folded"></div>
-          </div>
-          <!-- / user -->
-
+          
           <!-- nav -->
           <nav ui-nav class="navi clearfix">
             <ul class="nav">
-              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                <span>Navigation</span>
-              </li>
               <li>
-                <a href class="auto">      
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                  <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
-                  <span class="font-bold">Dashboard</span>
-                </a>
-                <ul class="nav nav-sub dk">
-                  <li class="nav-sub-header">
-                    <a href>
-                      <span>Dashboard</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html">
-                      <span>Dashboard v1</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="dashboard.html">
-                      <b class="label bg-info pull-right">N</b>
-                      <span>Dashboard v2</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="mail.html">
-                  <b class="badge bg-info pull-right">9</b>
-                  <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
-                  <span class="font-bold">Email</span>
+                <a href class="auto">
+                  <i class="fa fa-home"></i>
+                  <span class="font-bold">Panel principal</span>
                 </a>
               </li>
-              <li class="line dk"></li>
+              <li>
+                <a href="#">
+                  <i class="icon-list"></i>
+                  <span class="font-bold">Solicitudes</span>
+                </a>
+              </li>    
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-file"></i>
+                  <span class="font-bold">Propuestas</span>
+                </a>
+              </li>    
             </ul>
           </nav>
           <!-- nav -->
@@ -183,34 +94,25 @@
   <div id="content" class="app-content" role="main">
   	<div class="app-content-body ">
 	    
-<div class="wrapper-md">
+<div class="wrapper-md contenido">
   <div class="panel panel-default">
-    <div class="panel-heading">
-      Solicitudes pendientes
+    <div class="panel-heading titulo">
+        <h2>Solicitudes pendientes</h2>
     </div>
     <div class="table-responsive">
-      <table ui-jq="dataTable" ui-options="{
-          sAjaxSource: '/static/administrador/api/datatable.json',
-          aoColumns: [
-            { mData: 'engine' },
-            { mData: 'browser' },
-            { mData: 'platform' },
-            { mData: 'version' },
-            { mData: 'grade' }
-          ]
-        }" class="table table-striped b-t b-b">
-        <thead>
-          <tr>
-            <th  style="width:20%">Rendering engine</th>
-            <th  style="width:25%">Browser</th>
-            <th  style="width:25%">Platform(s)</th>
-            <th  style="width:15%">Engine version</th>
-            <th  style="width:15%">CSS grade</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
+        
+        <table id='tabla-datos'class="table table-striped b-t b-b">
+            <thead>
+                <tr>
+                    <th  style="width:10%">Nombre</th>
+                    <th  style="width:20%">Fecha de solicitud</th>
+                    <th  style="width:15%">Punto de salida</th>
+                    <th  style="width:15%">Punto de llegada</th>
+                    <th  style="width:10%">Ida y vuelta</th>
+                    <th  style="width:15%">Kms recorridos</th>
+                </tr>
+            </thead>
+        </table>
     </div>
   </div>
 </div>
@@ -243,7 +145,8 @@
 <script type="text/javascript" src="{% static 'administrador/js/ui-nav.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery.easy-pie-chart/dist/jquery.easypiechart.fill.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/libs/jquery/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
 
 
 

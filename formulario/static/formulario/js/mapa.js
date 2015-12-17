@@ -8,7 +8,7 @@ var map;
 var directionsDisplay;
 var directionsService;
 var inicio = true;
-
+var distance;
 
 var markers = [];
 var markers2 = [];
@@ -195,8 +195,24 @@ function calcRoute() {
     };
     directionsService.route(request, function (result, status) {
         if (status === google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(result);
+            directionsDisplay.setDirections(result);            
+            distance = 0;
+            for (i = 0; i < result.routes[0].legs.length; i++) {
+                distance += parseFloat(result.routes[0].legs[i].distance.value);
+                //for each 'leg'(route between two waypoints) we get the distance and add it to the total
+            }
+           distance = distance/1000;
+            
             eliminarMarks();
+        }
+        else
+        {
+            swal({
+                title: "Error",
+                text: "No se puede trazar ruta",
+                type: "error",
+                confirmButtonText: "Aceptar"                
+            });
         }
     });
 }
@@ -264,7 +280,13 @@ $('#definir-ruta').click(function () {
         agregarListenerInternal(searchBox, numPun - 1);
     } else
     {
-        alert("No se pueden definir más puntos")
+        swal({
+                title: "Error",
+                text: "No se puede definir más puntos",
+                type: "error",
+                confirmButtonText: "Aceptar"
+                
+            });
     }
     cambio();
 });
@@ -422,7 +444,8 @@ function validacionCampos()
             nombre: nombre.val(),
             correo: email.val(),
             comentarios: $('#comentarios').val(),
-            ruta :condicion
+            ruta :condicion,
+            distancia: distance
         };
         
         return JSON.stringify(respuesta);

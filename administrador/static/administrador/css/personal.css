@@ -15,6 +15,12 @@ and open the template in the editor.
     font-size: 50px;
 }
 
+.titulo h2
+{
+    font-size: 20px;
+    margin: 0px;
+}
+
 .logo{
     margin-bottom: 11px;
     margin-top: 5px;
@@ -24,4 +30,15 @@ and open the template in the editor.
 .aside-personal
 {
     padding-top: 10px;
+}
+
+.contenido
+{
+    margin-top: 25px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+th{
+    border-bottom: none !important;
 }

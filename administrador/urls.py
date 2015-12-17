@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.administrador, name='administrador'),
+    url(r'^json/$', views.jsonServidor, name='getjson'),
 ]
