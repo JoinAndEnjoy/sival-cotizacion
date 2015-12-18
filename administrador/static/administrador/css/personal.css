@@ -22,6 +22,13 @@ and open the template in the editor.
     margin: 0px;
 }
 
+.titulo h3
+{
+    font-size: 20px;
+    margin: 0px;
+    color: #7266BA;
+}
+
 .logo{
     
     font-size: 24px;
@@ -54,4 +61,40 @@ th{
 #tabla-datos 
 {
     border: none;
+    width: 100%;
+}
+
+.mi-contenedor
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.mi-row
+{
+    margin: 0px;
+}
+
+#resumen
+{
+    margin-top: 10px;
+    margin-bottom: 14px;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+#tabla-trayecto thead tr th
+{
+    border-left: 1px solid #dee5e7;
+}
+
+.comentarios
+{
+    padding: 15px;
+    background-color: #FAFBFC;
+}
+
+.comentarios span
+{
+    font-size: 15px;
+    font-weight: 600;
 }

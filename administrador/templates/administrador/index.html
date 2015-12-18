@@ -2,156 +2,236 @@
 
 <!DOCTYPE html>
 <html lang="es" class="">
-<head>
-  <meta charset="utf-8" />
-  <title>Sival: Administrador Propuestas</title>
-  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  
-  <link href="{% static 'administrador/libs/assets/animate.css/animate.css' %}" rel="stylesheet">
-  <link href="{% static 'administrador/libs/assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-  <link href="{% static 'administrador/libs/assets/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'administrador/libs/jquery/bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
-
-  
-  <link href="{% static 'administrador/css/font.css' %}" rel="stylesheet">
-  <link href="{% static 'administrador/css/app.css' %}" rel="stylesheet">
-  <link href="{% static 'administrador/css/tabla.css' %}" rel="stylesheet">  
-  <link href="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
-
-
-</head>
-<body>
-<div class="app app-header-fixed ">
-  
-
-    <!-- header -->
-  <header id="header" class="app-header navbar" role="menu">
-      <!-- navbar header -->
-      <div class="navbar-header bg-dark">
-        <!-- brand -->
-        <a href="#/" class="navbar-brand text-lt logo">
-          <span class="hidden-folded m-l-xs ">Sival</span>
-        </a>
-        <!-- / brand -->
-      </div>
-      <!-- / navbar header -->
-
-      <!-- navbar collapse -->
-      <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
-        <!-- buttons -->
+    <head>
+        <meta charset="utf-8" />
+        <title>Sival: Administrador Propuestas</title>
+        <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
-        <div class=" navbar-nav titulo">
-            <h1>Panel principal</h1>
-        </div>
-      </div>
-      <!-- / navbar collapse -->
-  </header>
-  <!-- / header -->
-
-
-    <!-- aside -->
-  <aside id="aside" class="app-aside hidden-xs bg-dark aside-personal">
-      <div class="aside-wrap">
-        <div class="navi-wrap">
-          <!-- user -->
-          
-          <!-- nav -->
-          <nav ui-nav class="navi clearfix">
-            <ul class="nav">
-              <li>
-                <a href class="auto">
-                  <i class="fa fa-home"></i>
-                  <span class="font-bold">Panel principal</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-list"></i>
-                  <span class="font-bold">Solicitudes</span>
-                </a>
-              </li>    
-              <li>
-                <a href="#">
-                  <i class="glyphicon glyphicon-file"></i>
-                  <span class="font-bold">Propuestas</span>
-                </a>
-              </li>    
-            </ul>
-          </nav>
-          <!-- nav -->
-
-          <!-- aside footer -->
-         
-          <!-- / aside footer -->
-        </div>
-      </div>
-  </aside>
-  <!-- / aside -->
-
-
-  <!-- content -->
-  <div id="content" class="app-content" role="main">
-  	<div class="app-content-body ">
-	    
-<div class="wrapper-md contenido">
-  <div class="panel panel-default">
-    <div class="panel-heading titulo">
-        <h2>Solicitudes pendientes</h2>
-    </div>
-    <div class="table-responsive">
         
-        <table  id='tabla-datos'class="table table-striped b-t b-b" > 
-            <thead>
-                <tr>
-                    <th  style="width:10%">Nombre</th>
-                    <th  style="width:15%">Fecha de solicitud</th>
-                    <th  style="width:15%">Punto de salida</th>
-                    <th  style="width:15%">Punto de llegada</th>
-                    <th  style="width:10%">Ida y vuelta</th>
-                    <th  style="width:15%">Kms recorridos</th>
-                    <th  style="width:20%"></th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-  </div>
-</div>
+        
+        <link href="{% static 'administrador/libs/assets/animate.css/animate.css' %}" rel="stylesheet">
+        <link href="{% static 'administrador/libs/assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'administrador/libs/assets/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'administrador/libs/jquery/bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
+
+
+        <link href="{% static 'administrador/css/font.css' %}" rel="stylesheet">
+        <link href="{% static 'administrador/css/app.css' %}" rel="stylesheet">
+        <link href="{% static 'administrador/css/tabla.css' %}" rel="stylesheet">  
+        <link href="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
+        
+        
+        
+
+    </head>
+    <body>
+        <div class="app app-header-fixed ">
+
+
+            <!-- header -->
+            <header id="header" class="app-header navbar" role="menu">
+                <!-- navbar header -->
+                <div class="navbar-header bg-dark">
+                    <!-- brand -->
+                    <a href="#/" class="navbar-brand text-lt logo">
+                        <span class="hidden-folded m-l-xs ">Sival</span>
+                    </a>
+                    <!-- / brand -->
+                </div>
+                <!-- / navbar header -->
+
+                <!-- navbar collapse -->
+                <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+                    <!-- buttons -->
+
+                    <div class=" navbar-nav titulo">
+                        <h1>Panel principal</h1>
+                    </div>
+                </div>
+                <!-- / navbar collapse -->
+            </header>
+            <!-- / header -->
+
+
+            <!-- aside -->
+            <aside id="aside" class="app-aside hidden-xs bg-dark aside-personal">
+                <div class="aside-wrap">
+                    <div class="navi-wrap">
+                        <!-- user -->
+
+                        <!-- nav -->
+                        <nav ui-nav class="navi clearfix">
+                            <ul class="nav">
+                                <li>
+                                    <a href class="auto">
+                                        <i class="fa fa-home"></i>
+                                        <span class="font-bold">Panel principal</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-list"></i>
+                                        <span class="font-bold">Solicitudes</span>
+                                    </a>
+                                </li>    
+                                <li>
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-file"></i>
+                                        <span class="font-bold">Propuestas</span>
+                                    </a>
+                                </li>    
+                            </ul>
+                        </nav>
+                        <!-- nav -->
+
+                        <!-- aside footer -->
+
+                        <!-- / aside footer -->
+                    </div>
+                </div>
+            </aside>
+            <!-- / aside -->
+
+
+            <!-- content -->
+            <div id="content" class="app-content" role="main">
+                <div class="app-content-body ">
+
+                    <div class="wrapper-md contenido">
+                        <div class="panel panel-default">
+                            <div class="panel-heading titulo">
+                                <h2>Solicitudes pendientes</h2>
+                            </div>
+                            <div class="table-responsive">
+
+                                <table  id='tabla-datos'class="table table-striped b-t b-b" > 
+                                    <thead>
+                                        <tr>
+                                            <th  style="width:10%">Nombre</th>
+                                            <th  style="width:15%">Fecha de solicitud</th>
+                                            <th  style="width:15%">Punto de salida</th>
+                                            <th  style="width:15%">Punto de llegada</th>
+                                            <th  style="width:10%">Ida y vuelta</th>
+                                            <th  style="width:15%">Kms recorridos</th>
+                                            <th  style="width:20%"></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading titulo">
+                                <h3>Enviar cotización</h3>
+                            </div>
+                            <div class="table-responsive interior">
+                                <div class="mi-contenedor">
+                                    <div class="row mi-row">
+                                        <div class="col-sm-4">
+
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <span class="col-sm-12" id="resumen">Resumen de solicitud</span>
+                                            <div class="col-sm-5">
+                                                <table  id='tabla-trayecto'class="table table-striped panel panel-default" > 
+                                                    <thead>
+                                                        <tr>
+                                                            <th  style="width:50%">Trayecto de ida</th>
+                                                            <th  style="width:50%">Trayecto de vuelta</th>                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <th>Fecha de salida</th>
+                                                            <td><span id="fecha">20-10-2015</span></td>                                                               
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <th>hora de salida</th>
+                                                            <td><span id="hora">2:30pm</span></td>                                                               
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <th>Km recorridos</th>
+                                                            <td><span id="hora">2:30pm</span></td>                                                               
+                                                        </tr>
+                                                    </tbody>
+                                                </table>                                                
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <table  id='tabla-info'class="table table-striped panel panel-default" > 
+                                                    
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <th>Nombre</th>
+                                                            <td id="nom-tab">Carlos roso</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <th>Email</th>
+                                                            <td id="em-tab">Carlos roso</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <th>Telefono</th>
+                                                            <td id="tel-tab">Carlos roso</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <th>Fecha de solicitud</th>
+                                                            <td id="fes-tab">20-10-2015</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <th>Ida y vuelta</th>
+                                                            <td id="ida-tab">si</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="panel panel-default comentarios">
+                                                    <span>Comentarios:</span>
+                                                    <br>
+                                                    <label id="comen">Hola esto es un comek as sdf sad fsa fas df asd fsa df sad fasd f asd fasd fas df asd fa f asd f</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
 
 
 
-	</div>
-  </div>
-  <!-- /content -->
-  
-  <!-- footer -->
-  <footer id="footer" class="app-footer" role="footer">
-    <div class="wrapper b-t bg-light">
-      <span class="pull-right">2.1.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
-      &copy; 2015 Copyright.
-    </div>
-  </footer>
-  <!-- / footer -->
+                </div>
+            </div>
+            <!-- /content -->
+
+            <!-- footer -->
+            <footer id="footer" class="app-footer" role="footer">
+                <div class="wrapper b-t bg-light">
+                    <span class="pull-right">2.1.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+                    &copy; 2015 Copyright.
+                </div>
+            </footer>
+            <!-- / footer -->
 
 
 
-</div>
+        </div>
 
 
-<script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery/dist/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/libs/jquery/datatables/media/js/jquery.dataTables.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/libs/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/ui-load.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/ui-jp.config.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/ui-jp.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/ui-nav.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
-<script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery/dist/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/libs/jquery/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/libs/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/ui-load.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/ui-jp.config.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/ui-jp.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/ui-nav.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
+        <script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
+        
 
 
-
-</body>
+    </body>
 </html>
