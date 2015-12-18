@@ -10,9 +10,10 @@ and open the template in the editor.
 
 .titulo h1
 {
-    margin-top: 0px; 
+    margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 50px;
+    font-size: 24px;
+    font-weight: 300;
 }
 
 .titulo h2
@@ -22,9 +23,8 @@ and open the template in the editor.
 }
 
 .logo{
-    margin-bottom: 11px;
-    margin-top: 5px;
-    font-size: 40px;
+    
+    font-size: 24px;
 }
 
 .aside-personal
@@ -41,4 +41,17 @@ and open the template in the editor.
 
 th{
     border-bottom: none !important;
+}
+
+#tabla-datos td
+{
+    vertical-align: middle;
+    padding-left: 18px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#tabla-datos 
+{
+    border: none;
 }
