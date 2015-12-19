@@ -129,10 +129,33 @@
                             <div class="table-responsive interior">
                                 <div class="mi-contenedor">
                                     <div class="row mi-row">
-                                        <div class="col-sm-4">
-
+                                        <div class="col-sm-4 " id="derehca">
+                                            <div class="panel panel-default formulario">
+                                                <div class="panel-heading font-bold">Formulario de cotización</div>
+                                                <div class="panel-body">
+                                                    <form role="form">
+                                                        <div class="form-group">
+                                                            <label>Precio trayecto ida</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Precio trayecto vuelta</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Comentarios</label>
+                                                            <textarea rows="4" cols="50" id="comentarios" class="form-control" style="resize: none;"></textarea>
+                                                        </div>
+                                                        
+                                                        <button class="btn m-b-xs w-xs btn-dark form-control" style="width: 100%">Previsualizar cotización</button>
+                                                        
+                                                        
+                                                        <button class="btn m-b-xs w-xs btn-success" type="submit" style="width: 100%">Enviar</button>                                                        
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8" id="izquierda">
                                             <span class="col-sm-12" id="resumen">Resumen de solicitud</span>
                                             <div class="col-sm-5">
                                                 <table  id='tabla-trayecto'class="table table-striped panel panel-default" > 
@@ -160,12 +183,15 @@
                                             </div>
                                             <div class="col-sm-7">
                                                 <table  id='tabla-info'class="table table-striped panel panel-default" > 
-                                                    
-                                                    <tbody>
-                                                        <tr role="row" class="odd">
-                                                            <th>Nombre</th>
-                                                            <td id="nom-tab">Carlos roso</td>
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width:50%">Nombre</th>
+                                                            <td style="width:50%;padding-left: 15px;" id="nom-tab">Carlos roso</td>
                                                         </tr>
+                                                    </thead>
+                                                      
+                                                    <tbody>
+                                                        
                                                         <tr role="row" class="odd">
                                                             <th>Email</th>
                                                             <td id="em-tab">Carlos roso</td>

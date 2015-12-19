@@ -29,6 +29,12 @@ and open the template in the editor.
     color: #7266BA;
 }
 
+.titulo h4
+{
+    font-size: 15px;
+    margin: 0px;
+}
+
 .logo{
     
     font-size: 24px;
@@ -97,4 +103,21 @@ th{
 {
     font-size: 15px;
     font-weight: 600;
+}
+
+
+.formulario{
+    margin-top: 17px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.formulario label
+{
+    width: 100%;
+}
+
+.formulario input
+{
+    margin-bottom: 12px;
 }

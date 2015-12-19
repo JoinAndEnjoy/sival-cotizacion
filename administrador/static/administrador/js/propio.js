@@ -26,10 +26,20 @@ $(document).ready(function () {
                     {"mData": null,
                         "bSortable": false,
                         "mRender": function (o) {
-                            return '<button class="btn m-b-xs w-xs btn-default btn-rounded">Ver mapa</button> <button class="btn m-b-xs w-xs btn-success btn-rounded">Responder</button>';
+                            return '<button class="btn m-b-xs w-xs btn-default btn-rounded" style="margin-right: 3%;">Ver mapa</button> <button class="btn m-b-xs w-xs btn-success btn-rounded">Responder</button>';
                         }
                     }
                 ]
             });
 
+});
+
+$(document).ready(function () {
+    var tam1 = $('#derehca').height();
+    var tam2 = $('#izquierda').height();
+    if(tam1>tam2)
+        $('#derehca').css("border-right", "1px solid #dee5e7");
+    else
+        $('#izquierda').css("border-left", "1px solid #dee5e7");
+    
 });
