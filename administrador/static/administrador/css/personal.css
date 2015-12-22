@@ -121,3 +121,18 @@ th{
 {
     margin-bottom: 12px;
 }
+
+#tabla-trayecto thead tr th
+{
+    cursor: pointer;
+}
+.superior
+{
+    background-color: #FAFBFC;
+}
+
+.p-interior th
+{
+    color: #834dbd
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Sival mapa</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map" style="height: 100%"></div>  
+        <script type="text/javascript"> 
+            var ida = "{{ruta1}}";
+            var vuelta = "{{ruta2}}";
+        </script>
+        <script type="text/javascript" src="{% static 'formulario/js/mapa2.js' %}"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcEPNy2nmaDLDzM9u4q3XWokUK7UVAUcA&callback=initMap&libraries=places">
+        </script>
+    </body>
+</html>

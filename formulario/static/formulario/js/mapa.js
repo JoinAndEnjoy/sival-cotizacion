@@ -9,6 +9,7 @@ var directionsDisplay;
 var directionsService;
 var inicio = true;
 var distance;
+var distance2;
 
 var markers = [];
 var markers2 = [];
@@ -195,14 +196,11 @@ function calcRoute() {
     };
     directionsService.route(request, function (result, status) {
         if (status === google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(result);            
-            distance = 0;
-            for (i = 0; i < result.routes[0].legs.length; i++) {
-                distance += parseFloat(result.routes[0].legs[i].distance.value);
-                //for each 'leg'(route between two waypoints) we get the distance and add it to the total
-            }
-           distance = distance/1000;
-            
+            directionsDisplay.setDirections(result);
+            if(inicio)
+                distance = darDistancia(result);
+            else
+                distance2 = darDistancia(result);
             eliminarMarks();
         }
         else
@@ -215,6 +213,17 @@ function calcRoute() {
             });
         }
     });
+}
+
+function darDistancia(result)
+{
+    var dis = 0;
+    for (i = 0; i < result.routes[0].legs.length; i++) {
+        dis += parseFloat(result.routes[0].legs[i].distance.value);
+        //for each 'leg'(route between two waypoints) we get the distance and add it to the total
+    }
+    dis = dis / 1000;
+    return dis;
 }
 
 function eliminarMarks()
@@ -445,7 +454,8 @@ function validacionCampos()
             correo: email.val(),
             comentarios: $('#comentarios').val(),
             ruta :condicion,
-            distancia: distance
+            distancia: distance,
+            distancia2: distance2
         };
         
         return JSON.stringify(respuesta);

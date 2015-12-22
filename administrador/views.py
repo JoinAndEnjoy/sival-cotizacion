@@ -22,6 +22,18 @@ def jsonServidor(request):
         lista.append(cot)        
     dic = {"aaData":lista}
     serial2 = json.dumps(dic, cls=DjangoJSONEncoder)
-    
     return HttpResponse(serial2)
+
+def rutaIda(request, id):
+    cotizacion = Cotizacion.objects.get(pk=id);
+    puntosIda = Punto.objects.filter(cotizacion = cotizacion).filter(camino='OR').order_by('secuencia').values();
+    serial = json.dumps(list(puntosIda), cls=DjangoJSONEncoder)
+    return HttpResponse(serial)
+
+def rutaVuelta(request, id):
+    cotizacion = Cotizacion.objects.get(pk=id);
+    puntosIda = Punto.objects.filter(cotizacion = cotizacion).filter(camino='DS').order_by('secuencia').values();
+    serial = json.dumps(list(puntosIda), cls=DjangoJSONEncoder)
+    return HttpResponse(serial)
+    
     

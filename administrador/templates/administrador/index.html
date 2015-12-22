@@ -7,9 +7,9 @@
         <title>Sival: Administrador Propuestas</title>
         <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-        
-        
+
+
+
         <link href="{% static 'administrador/libs/assets/animate.css/animate.css' %}" rel="stylesheet">
         <link href="{% static 'administrador/libs/assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
         <link href="{% static 'administrador/libs/assets/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
@@ -21,9 +21,9 @@
         <link href="{% static 'administrador/css/tabla.css' %}" rel="stylesheet">  
         <link href="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
         <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
-        
-        
-        
+
+
+
 
     </head>
     <body>
@@ -121,8 +121,8 @@
                                 </table>
                             </div>
                         </div>
-                        
-                        <div class="panel panel-default">
+
+                        <div class="panel panel-default" style="display: none" id="contenedor2">
                             <div class="panel-heading titulo">
                                 <h3>Enviar cotización</h3>
                             </div>
@@ -146,10 +146,8 @@
                                                             <label>Comentarios</label>
                                                             <textarea rows="4" cols="50" id="comentarios" class="form-control" style="resize: none;"></textarea>
                                                         </div>
-                                                        
-                                                        <button class="btn m-b-xs w-xs btn-dark form-control" style="width: 100%">Previsualizar cotización</button>
-                                                        
-                                                        
+
+                                                        <button class="btn m-b-xs w-xs btn-dark form-control" style="width: 100%" id="pp1" type="button">Previsualizar cotización</button>
                                                         <button class="btn m-b-xs w-xs btn-success" type="submit" style="width: 100%">Enviar</button>                                                        
                                                     </form>
                                                 </div>
@@ -157,12 +155,12 @@
                                         </div>
                                         <div class="col-sm-8" id="izquierda">
                                             <span class="col-sm-12" id="resumen">Resumen de solicitud</span>
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-6">
                                                 <table  id='tabla-trayecto'class="table table-striped panel panel-default" > 
                                                     <thead>
                                                         <tr>
-                                                            <th  style="width:50%">Trayecto de ida</th>
-                                                            <th  style="width:50%">Trayecto de vuelta</th>                                                            
+                                                            <th  style="width:50%" class="superior" id="s1">Trayecto de ida</th>
+                                                            <th  style="width:50%" id="s2">Trayecto de vuelta </th>                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -176,12 +174,12 @@
                                                         </tr>
                                                         <tr role="row" class="odd">
                                                             <th>Km recorridos</th>
-                                                            <td><span id="hora">2:30pm</span></td>                                                               
+                                                            <td><span id="klm">2:30pm</span></td>                                                               
                                                         </tr>
                                                     </tbody>
                                                 </table>                                                
                                             </div>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <table  id='tabla-info'class="table table-striped panel panel-default" > 
                                                     <thead>
                                                         <tr>
@@ -189,17 +187,13 @@
                                                             <td style="width:50%;padding-left: 15px;" id="nom-tab">Carlos roso</td>
                                                         </tr>
                                                     </thead>
-                                                      
+
                                                     <tbody>
-                                                        
+
                                                         <tr role="row" class="odd">
                                                             <th>Email</th>
                                                             <td id="em-tab">Carlos roso</td>
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <th>Telefono</th>
-                                                            <td id="tel-tab">Carlos roso</td>
-                                                        </tr>
+                                                        </tr>                                                        
                                                         <tr role="row" class="odd">
                                                             <th>Fecha de solicitud</th>
                                                             <td id="fes-tab">20-10-2015</td>
@@ -256,8 +250,6 @@
         <script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
         <script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
         <script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
-        
-
 
     </body>
 </html>
