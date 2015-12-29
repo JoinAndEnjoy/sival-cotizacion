@@ -197,10 +197,9 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
-            if(inicio)
-                distance = darDistancia(result);
-            else
-                distance2 = darDistancia(result);
+            
+            distance = darDistancia(result);
+            distance2 = darDistancia(result);
             eliminarMarks();
         }
         else
@@ -442,6 +441,18 @@ function validacionCampos()
         alert('Correo no valido');
         termino = false;
     }
+    
+    if(condicion==="2" && !fechaRegreso)
+    {
+        swal({
+                title: "Error",
+                text: "Deve seleccionar fecha de regreso",
+                type: "error",
+                confirmButtonText: "Aceptar"                
+            });
+        termino = false;
+    }
+    
     
     if (termino)
     {
