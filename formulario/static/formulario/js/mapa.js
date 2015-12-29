@@ -518,8 +518,7 @@ function create_post(vector) {
 //		console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
 //		}
     });
-}
-;
+};
 
 
 
@@ -576,5 +575,5 @@ $.ajaxSetup({
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
         }
     }
-})
+});
 
