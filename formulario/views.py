@@ -51,13 +51,15 @@ def crearRuta(request):
 def verMapa(request):
     return render(request,'formulario/mapa.html')
 
-def verMapa2(request,id):
+def verMapa2(request,id,caminon):
     cotizacion = Cotizacion.objects.get(pk=id);
-    puntosIda = Punto.objects.filter(cotizacion = cotizacion).filter(camino='OR').order_by('secuencia').values();
-    serial = json.dumps(list(puntosIda), cls=DjangoJSONEncoder)
-    puntosIda2 = Punto.objects.filter(cotizacion = cotizacion).filter(camino='DS').order_by('secuencia').values();
-    serial2 = json.dumps(list(puntosIda2), cls=DjangoJSONEncoder)
-    context = {'ruta1' : serial,'ruta2':serial2}
+    if caminon=='1':
+        puntos = Punto.objects.filter(cotizacion = cotizacion).filter(camino='OR').order_by('secuencia').values();
+    else:
+        puntos = Punto.objects.filter(cotizacion = cotizacion).filter(camino='DS').order_by('secuencia').values();
+    
+    serial = json.dumps(list(puntos), cls=DjangoJSONEncoder)
+    context = {'ruta1' : serial}
     return render(request,'formulario/mapaVer.html',context)
 
 def verTabla(request):

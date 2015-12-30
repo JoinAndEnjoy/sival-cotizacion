@@ -22,6 +22,7 @@
         <link href="{% static 'administrador/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
         <link href="{% static 'administrador/css/personal.css' %}" rel="stylesheet">
         <link href="{% static 'sweetalert/dist/sweetalert.css' %}" rel="stylesheet">
+        {% block link %}{% endblock %}
 
 
 
@@ -48,7 +49,7 @@
                     <!-- buttons -->
 
                     <div class=" navbar-nav titulo">
-                        <h1>Panel principal</h1>
+                        <h1>{% block title %}{% endblock %}</h1>
                     </div>
                 </div>
                 <!-- / navbar collapse -->
@@ -101,127 +102,8 @@
                 <div class="app-content-body ">
 
                     <div class="wrapper-md contenido">
-                        <div class="panel panel-default">
-                            <div class="panel-heading titulo">
-                                <h2>Solicitudes pendientes</h2>
-                            </div>
-                            <div class="table-responsive">
-
-                                <table  id='tabla-datos'class="table table-striped b-t b-b" > 
-                                    <thead>
-                                        <tr>
-                                            <th  style="width:10%">Nombre</th>
-                                            <th  style="width:15%">Fecha de solicitud</th>
-                                            <th  style="width:15%">Punto de salida</th>
-                                            <th  style="width:15%">Punto de llegada</th>
-                                            <th  style="width:10%">Ida y vuelta</th>
-                                            <th  style="width:15%">Kms recorridos</th>
-                                            <th  style="width:20%"></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default" style="display: none" id="contenedor2">
-                            <div class="panel-heading titulo">
-                                <h3>Enviar cotización</h3>
-                            </div>
-                            <div class="table-responsive interior">
-                                <div class="mi-contenedor">
-                                    <div class="row mi-row">
-                                        <div class="col-sm-4 " id="derehca">
-                                            <div class="panel panel-default formulario">
-                                                <div class="panel-heading font-bold">Formulario de cotización</div>
-                                                <div class="panel-body">
-                                                    <form role="form" id="form-origen">
-                                                        <div class="form-group">
-                                                            <label>Precio trayecto ida</label>
-                                                            <input type="number" class="form-control" id="cmp1">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Precio trayecto vuelta</label>
-                                                            <input type="number" class="form-control" id="cmp2" >
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Comentarios</label>
-                                                            <textarea rows="4" cols="50" id="comentarios" class="form-control" style="resize: none;"></textarea>
-                                                        </div>
-
-                                                        <button class="btn m-b-xs w-xs btn-dark form-control" style="width: 100%" id="pp1" type="button">Previsualizar cotización</button>
-                                                        <button class="btn m-b-xs w-xs btn-success" type="submit" style="width: 100%">Enviar</button>                                                        
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8" id="izquierda">
-                                            <span class="col-sm-12" id="resumen">Resumen de solicitud</span>
-                                            <div class="col-sm-6">
-                                                <table  id='tabla-trayecto'class="table table-striped panel panel-default" > 
-                                                    <thead>
-                                                        <tr>
-                                                            <th  style="width:50%" class="superior" id="s1">Trayecto de ida</th>
-                                                            <th  style="width:50%" id="s2">Trayecto de vuelta </th>                                                            
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr role="row" class="odd">
-                                                            <th>Fecha de salida</th>
-                                                            <td><span id="fecha">20-10-2015</span></td>                                                               
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <th>hora de salida</th>
-                                                            <td><span id="hora">2:30pm</span></td>                                                               
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <th>Km recorridos</th>
-                                                            <td><span id="klm">2:30pm</span></td>                                                               
-                                                        </tr>
-                                                    </tbody>
-                                                </table>                                                
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <table  id='tabla-info'class="table table-striped panel panel-default" > 
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width:50%">Nombre</th>
-                                                            <td style="width:50%;padding-left: 15px;" id="nom-tab">Carlos roso</td>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        <tr role="row" class="odd">
-                                                            <th>Email</th>
-                                                            <td id="em-tab">Carlos roso</td>
-                                                        </tr>                                                        
-                                                        <tr role="row" class="odd">
-                                                            <th>Fecha de solicitud</th>
-                                                            <td id="fes-tab">20-10-2015</td>
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <th>Ida y vuelta</th>
-                                                            <td id="ida-tab">si</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div class="panel panel-default comentarios">
-                                                    <span>Comentarios:</span>
-                                                    <br>
-                                                    <label id="comen">Hola esto es un comek as sdf sad fsa fas df asd fsa df sad fasd f asd fasd fas df asd fa f asd f</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
+                        {% block body %}{% endblock %}
                     </div>
-
-
-
                 </div>
             </div>
             <!-- /content -->
@@ -250,7 +132,10 @@
         <script type="text/javascript" src="{% static 'administrador/js/ui-nav.js' %}"></script>
         <script type="text/javascript" src="{% static 'administrador/js/ui-toggle.js' %}"></script>
         <script type="text/javascript" src="{% static 'administrador/js/ui-client.js' %}"></script>
-        <script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
         <script type="text/javascript" src="{% static 'sweetalert/dist/sweetalert.min.js' %}"></script>
+        {% block script %}{% endblock %}
+        
+        
+        
     </body>
 </html>

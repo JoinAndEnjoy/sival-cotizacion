@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 var daton;
+var camino=1;
 
 $(document).ready(function () {
 
@@ -22,10 +23,10 @@ $(document).ready(function () {
                     {"mData": 'origen'},
                     {"mData": 'destino'},
                     {"mData": 'camino',
-                        "mRender":function (o){
-                            if(o===1)
-                                return 'no'; 
-                            else 
+                        "mRender": function (o) {
+                            if (o === 1)
+                                return 'no';
+                            else
                                 return 'si';
                         }
                     },
@@ -33,7 +34,7 @@ $(document).ready(function () {
                     {"mData": null,
                         "bSortable": false,
                         "mRender": function (o) {
-                            return '<button class="btn m-b-xs w-xs btn-default btn-rounded" style="margin-right: 3%;" id="m-' + o.id + '" type="button">Ver mapa</button> <button class="btn m-b-xs w-xs btn-success btn-rounded" id="r-' + o.id + '" type="button">Responder</button>';
+                            return '<button class="btn m-b-xs w-xs btn-success btn-rounded" id="r-' + o.id + '" type="button">Responder</button>';
                         }
                     }
                 ]
@@ -42,23 +43,18 @@ $(document).ready(function () {
     $('#tabla-datos tbody').on('click', 'button', function () {
         var data = this.id;
         var row = $($(this).parent()).parent();
-        var fila = table.row( row ).data();
-        
-        var dat = data.split("-");
-        if(dat[0]==='r')
-        {
-            responder(fila);
-            $('#contenedor2').css("display","block");
-            $("html, body").animate({scrollTop: $('#contenedor2').offset().top }, 500);
-        }
-        else
-        {
-            window.open('/mapa/informcacion/'+fila.id);
-        }
-            
+        var fila = table.row(row).data();
+        responder(fila);
+        $('#contenedor2').css("display", "block");
+        $("html, body").animate({scrollTop: $('#contenedor2').offset().top}, 500);
     });
 
 });
+
+$('#but').click(function () {
+    window.open('/mapa/informcacion/' + daton.id+'/'+camino);
+});
+
 
 function inicial()
 {
@@ -69,14 +65,14 @@ function inicial()
     else
         $('#izquierda').css("border-left", "1px solid #dee5e7");
 }
-    
+
 
 function responder(datos)
 {
     $('#nom-tab').html(datos.nombre);
     $('#em-tab').html(datos.correo);
     $('#fes-tab').html(datos.fecha);
-    if(datos.camino === 1)
+    if (datos.camino === 1)
         $('#ida-tab').html('no');
     else
         $('#ida-tab').html('si');
@@ -93,47 +89,45 @@ function responder(datos)
 
 $(document).ready(function () {
     $('#s1').click(function () {
+        camino=1;
         $('#s2').removeClass('superior');
         $('#s1').addClass('superior');
         $('#fecha').html(daton.salida);
         $('#klm').html(daton.distancia);
         puntosIda("/administrador/rutaida/" + daton.id + "/");
     });
-  
-   
-   
-   $('#s2').click( function () {
-       
-       $('#s1').removeClass('superior');
-       $('#s2').addClass('superior');
-       $('#fecha').html(daton.regreso);
-       $('#klm').html(daton.distancia2);
-       puntosIda("/administrador/rutavuelta/" + daton.id + "/");
-   });
-   
+    $('#s2').click(function () {
+        camino=2;
+        $('#s1').removeClass('superior');
+        $('#s2').addClass('superior');
+        $('#fecha').html(daton.regreso);
+        $('#klm').html(daton.distancia2);
+        puntosIda("/administrador/rutavuelta/" + daton.id + "/");
+    });
+
 });
 
 
-function puntos (datos)
+function puntos(datos)
 {
-   $('.p-interior').remove();
-   var dato = $.parseJSON(datos);
-   $('#tabla-trayecto > tbody:last-child').append('<tr role="row" class=" p-interior odd">\
+    $('.p-interior').remove();
+    var dato = $.parseJSON(datos);
+    $('#tabla-trayecto > tbody:last-child').append('<tr role="row" class=" p-interior odd">\
                                      <th>Origen:</th>\
-                                     <td>'+dato[0].nombre+'</td>\
+                                     <td>' + dato[0].nombre + '</td>\
                                 </tr>');
-    
-   for (i = 1; i<dato.length-1;i++)
-   {
-       $('#tabla-trayecto > tbody:last-child').append('<tr role="row" class=" p-interior odd">\
-                                     <th>Punto '+i+':</th>\
-                                     <td>'+dato[i].nombre+'</td>\
+
+    for (i = 1; i < dato.length - 1; i++)
+    {
+        $('#tabla-trayecto > tbody:last-child').append('<tr role="row" class=" p-interior odd">\
+                                     <th>Punto ' + i + ':</th>\
+                                     <td>' + dato[i].nombre + '</td>\
                                 </tr>');
-   }
-   
-   $('#tabla-trayecto > tbody:last-child').append('<tr role="row" class=" p-interior odd">\
+    }
+
+    $('#tabla-trayecto > tbody:last-child').append('<tr role="row" class=" p-interior odd">\
                                      <th>Destino:</th>\
-                                     <td>'+dato[dato.length-1].nombre+'</td>\
+                                     <td>' + dato[dato.length - 1].nombre + '</td>\
                                 </tr>');
     inicial();
 }
@@ -154,24 +148,24 @@ $('#form-origen').on('submit', function (event) {
     var c1 = $('#cmp1').val();
     var c2 = $('#cmp2').val();
     var c3 = $('#comentarios').val();
-    if(!c1 && !c2 && !c3)
+    if (!c1 && !c2 && !c3)
     {
-        
+
         swal({
-                title: "Error",
-                text: "Propuesta en blanco",
-                type: "error",
-                confirmButtonText: "Aceptar"                
-            });
-    }
-    else
+            title: "Error",
+            text: "Propuesta en blanco",
+            type: "error",
+            confirmButtonText: "Aceptar"
+        });
+    } else
     {
         var vector = {
-            id : daton.id,
-            cm1:c1,
-            cm2:c2,
-            cm3:c3
+            id: daton.id,
+            cm1: c1,
+            cm2: c2,
+            cm3: c3
         };
+        $('#load-block').css('display','block');
         create_post(vector);
     }
 });
@@ -179,6 +173,7 @@ $('#form-origen').on('submit', function (event) {
 
 // ajax metodos
 function create_post(vector) {
+    
     $.ajax({
         url: "/administrador/guardar/", // the endpoint
         type: "POST", // http method
@@ -186,14 +181,17 @@ function create_post(vector) {
 
         // handle a successful response
         success: function (mensaje) {
+            $('#load-block').css('display','none');
             swal({
                 title: "Enviado",
                 text: "La propuesta se envio correctamente",
                 type: "success",
                 confirmButtonText: "Aceptar",
                 closeOnConfirm: false
-            }, function(){  location.reload();  });
-             
+            }, function () {
+                location.reload();
+            });
+
         }
 
         // handle a non-successful response
@@ -203,7 +201,8 @@ function create_post(vector) {
 //		console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
 //		}
     });
-};
+}
+;
 
 //This function gets cookie with a given name
 function getCookie(name) {

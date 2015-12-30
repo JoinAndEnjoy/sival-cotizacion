@@ -14,7 +14,7 @@ BASE_DIR_PROPUESTA = BASE_DIR+"/administrador/propuesta/"
 # Create your views here.
 
 def administrador(request):
-    return render(request,'administrador/index.html')
+    return render(request,'administrador/principal.html')
 
 def jsonServidor(request):
     cotizaciones = Cotizacion.objects.filter(respondido = False).order_by('-fecha').values()
@@ -49,13 +49,16 @@ def crearPropuesta(request):
     cotizacion.save()
     form = formulario()
     form.precioIda = dic.get('cm1')[0]
-    form.precioRegreso = dic.get('cm2')[0]
+    if dic.get('cm2')[0]!='':
+        form.precioRegreso = dic.get('cm2')[0]
     form.comentarios = dic.get('cm3')[0]
     form.cotizacion = cotizacion
-    form.slug = get_random_string(length=100)
+    form.slug = get_random_string(length=5)
     form.save()
-    send_mail('hola amigo', 'ingrese a la pagina '+ BASE_DIR_PROPUESTA+form.slug, 'from@example.com',
-    ['ruedagato@gmail.com'], fail_silently=False)
+    form.slug = form.slug+str(form.pk)
+    form.save()
+    send_mail('Propuesta sival', 'Hola '+cotizacion.nombre+'. Ingrese a la pagina '+ BASE_DIR_PROPUESTA+form.slug+ ' para ver tu propuesta', 'from@example.com',
+    [cotizacion.correo], fail_silently=False)
     return HttpResponse('ok')
 
 def darPropuesta(request,slug):

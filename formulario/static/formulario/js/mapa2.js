@@ -17,9 +17,7 @@ function initMap()
     });
     directionsService = new google.maps.DirectionsService();
     ida = JSON.parse(ida.replace(/&quot;/g,'"'));
-    vuelta = JSON.parse(vuelta.replace(/&quot;/g,'"'));
     calcRoute(ida);
-    //calcRoute(vuelta);
 }
 
 function renderDirections(result) {

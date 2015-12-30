@@ -20,6 +20,15 @@ var internalmark2 = [];
 var numPun = 0;
 var numPun2 = 0;
 
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode === 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+
 function initMap()
 {
     map = new google.maps.Map(document.getElementById('map'), {
