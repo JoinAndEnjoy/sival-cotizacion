@@ -150,25 +150,50 @@ function puntosIda(url)
 }
 
 $('#form-origen').on('submit', function (event) {
-    
+    event.preventDefault();
+    var c1 = $('#cmp1').val();
+    var c2 = $('#cmp2').val();
+    var c3 = $('#comentarios').val();
+    if(!c1 && !c2 && !c3)
+    {
+        
+        swal({
+                title: "Error",
+                text: "Propuesta en blanco",
+                type: "error",
+                confirmButtonText: "Aceptar"                
+            });
+    }
+    else
+    {
+        var vector = {
+            id : daton.id,
+            cm1:c1,
+            cm2:c2,
+            cm3:c3
+        };
+        create_post(vector);
+    }
 });
+
+
 // ajax metodos
 function create_post(vector) {
     $.ajax({
-        url: "/guardar/", // the endpoint
+        url: "/administrador/guardar/", // the endpoint
         type: "POST", // http method
-        data: {info : vector}, // data sent with the post request
+        data: vector, // data sent with the post request
 
         // handle a successful response
         success: function (mensaje) {
             swal({
-                customClass: "mi-modal",
-                title: "Formulario enviado exitosamente",
-                text: "¡hola "+$('#nombre').val()+"! <br><br> Revisaremos tu solicitud y te enviaremos nuestra cotización cuanto antes a tu correo: <div class='correo'> "+$('#email').val()+"</div>" ,
+                title: "Enviado",
+                text: "La propuesta se envio correctamente",
                 type: "success",
                 confirmButtonText: "Aceptar",
-                html: true
-            });
+                closeOnConfirm: false
+            }, function(){  location.reload();  });
+             
         }
 
         // handle a non-successful response

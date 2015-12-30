@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^json/$', views.jsonServidor, name='getjson'),
     url(r'^rutaida/(?P<id>[0-9]+)/$', views.rutaIda, name='getruta1'),
     url(r'^rutavuelta/(?P<id>[0-9]+)/$', views.rutaVuelta, name='getruta2'),
+    url(r'^guardar/$', views.crearPropuesta, name='crear'),
+    url(r'^propuesta/(?P<slug>[^\.]+)/$', views.darPropuesta, name='propuesta'),
 ]

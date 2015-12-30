@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from formulario.models import Cotizacion, Punto
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
 import json
+from administrador.models import formulario
+from django.utils.crypto import get_random_string
+from django.core.mail import send_mail
 
 
 
@@ -12,7 +15,7 @@ def administrador(request):
     return render(request,'administrador/index.html')
 
 def jsonServidor(request):
-    cotizaciones = Cotizacion.objects.all().order_by('-fecha').values()
+    cotizaciones = Cotizacion.objects.filter(respondido = False).order_by('-fecha').values()
     lista = []
     for cot in cotizaciones:
         punto1 = Punto.objects.filter(cotizacion_id = cot.get('id')).filter(camino='OR').filter(secuencia=0)[0]
@@ -35,5 +38,25 @@ def rutaVuelta(request, id):
     puntosIda = Punto.objects.filter(cotizacion = cotizacion).filter(camino='DS').order_by('secuencia').values();
     serial = json.dumps(list(puntosIda), cls=DjangoJSONEncoder)
     return HttpResponse(serial)
+
+def crearPropuesta(request):
+    qdic = request.POST
+    dic = dict(qdic.iterlists())
+    cotizacion = Cotizacion.objects.get(pk=dic.get('id')[0])
+    cotizacion.respondido = True
+    cotizacion.save()
+    form = formulario()
+    form.precioIda = dic.get('cm1')[0]
+    form.precioRegreso = dic.get('cm2')[0]
+    form.comentarios = dic.get('cm3')[0]
+    form.cotizacion = cotizacion
+    form.slug = get_random_string(length=100)
+    form.save()
+    return HttpResponse('ok')
+
+def darPropuesta(request,slug):
+    propuesta = get_object_or_404(formulario,slug = slug)
+    context = {'cm1':propuesta.precioIda,'cm2':propuesta.precioRegreso,'cm3':propuesta.comentarios}
+    return render(request,'administrador/propuesta.html',context)
     
     
