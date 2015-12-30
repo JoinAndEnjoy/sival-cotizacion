@@ -8,6 +8,8 @@ from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
 
 
+BASE_DIR = '127.0.0.1:8000'
+BASE_DIR_PROPUESTA = BASE_DIR+"/administrador/propuesta/"
 
 # Create your views here.
 
@@ -52,6 +54,8 @@ def crearPropuesta(request):
     form.cotizacion = cotizacion
     form.slug = get_random_string(length=100)
     form.save()
+    send_mail('hola amigo', 'ingrese a la pagina '+ BASE_DIR_PROPUESTA+form.slug, 'from@example.com',
+    ['ruedagato@gmail.com'], fail_silently=False)
     return HttpResponse('ok')
 
 def darPropuesta(request,slug):
