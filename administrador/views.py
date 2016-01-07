@@ -65,5 +65,28 @@ def darPropuesta(request,slug):
     propuesta = get_object_or_404(formulario,slug = slug)
     context = {'cm1':propuesta.precioIda,'cm2':propuesta.precioRegreso,'cm3':propuesta.comentarios}
     return render(request,'administrador/propuesta.html',context)
+
+def HistorialSolicitud(request):
+    return render(request,'administrador/solicitudes.html')
+
+def jsonSolicitudes(request):
+    cotizaciones = Cotizacion.objects.all().values()
+    lista = []
+    for cot in cotizaciones:
+        punto1 = Punto.objects.filter(cotizacion_id = cot.get('id')).filter(camino='OR').filter(secuencia=0)[0]
+        punto2 = Punto.objects.filter(cotizacion_id = cot.get('id')).filter(camino='DS').filter(secuencia=0)[0]
+        cot['origen'] = punto1.nombre
+        cot['destino'] = punto2.nombre
+        formu = formulario.objects.get(cotizacion_id = cot.get('id'))
+        cot['pida'] = formu.precioIda
+        cot['pregreso'] = formu.precioRegreso
+        cot['com'] = formu.comentarios
+        lista.append(cot)        
+    dic = {"aaData":lista}
+    serial2 = json.dumps(dic, cls=DjangoJSONEncoder)
+    return HttpResponse(serial2)
+    
+
+    
     
     

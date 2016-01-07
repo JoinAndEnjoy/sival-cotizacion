@@ -11,7 +11,7 @@ class formulario(models.Model):
     precioIda = models.IntegerField(null=True)
     precioRegreso = models.IntegerField(null=True)
     comentarios = models.CharField(max_length=200,null=True)
-    cotizacion= models.ForeignKey(Cotizacion,on_delete=models.CASCADE)
+    cotizacion= models.OneToOneField(Cotizacion,on_delete=models.CASCADE,primary_key=True)
     slug = models.SlugField(max_length = 100, unique = True)
         
     

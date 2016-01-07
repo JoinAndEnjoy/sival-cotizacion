@@ -1,0 +1,38 @@
+{% extends "administrador/index.html" %}
+{% load staticfiles %}
+
+{% block link %}
+{% endblock %}
+
+{% block title %}
+Solicitudes
+{% endblock %}
+
+{% block body %}
+<div class="panel panel-default">
+    <div class="panel-heading titulo">
+        <h2>Solicitudes</h2>
+    </div>
+    <div class="table-responsive">
+
+        <table  id='tabla-solicitud'class="table table-striped b-t b-b" > 
+            <thead>
+                <tr>
+                    <th  style="width:15%">Fecha solicitud</th>
+                    <th  style="width:20%">Punto de salida</th>
+                    <th  style="width:20%">Punto de llegada</th>
+                    <th  style="width:10%">Precio ida</th>  
+                    <th  style="width:10%">Precio regreso</th>  
+                    <th  style="width:10%">Respondida</th>  
+                    <th  style="width:15%"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'administrador/js/solicitud.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/jquery.number.min.js' %}"></script>
+{% endblock %}
