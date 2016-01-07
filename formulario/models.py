@@ -11,8 +11,8 @@ class Cotizacion(models.Model):
     regreso = models.DateField(null=True)
     fecha = models.DateField(auto_now_add=True)
     camino = models.IntegerField()
-    distancia = models.DecimalField(max_digits=5, decimal_places=2)
-    distancia2 = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+    distancia = models.DecimalField(max_digits=100, decimal_places=5)
+    distancia2 = models.DecimalField(max_digits=100, decimal_places=5, null=True)
     respondido = models.BooleanField(default=False)
     def __unicode__(self):  # __unicode__ on Python 2
         return (self.nombre + " / %s")%(str(self.fecha))

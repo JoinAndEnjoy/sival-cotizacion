@@ -73,7 +73,10 @@ function responder(datos)
     $('#em-tab').html(datos.correo);
     $('#fes-tab').html(datos.fecha);
     if (datos.camino === 1)
+    {
         $('#ida-tab').html('no');
+        $('#campovuelta').css("display", "none");
+    } 
     else
         $('#ida-tab').html('si');
     $('#comen').html(datos.comentarios);
