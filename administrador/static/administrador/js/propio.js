@@ -78,7 +78,11 @@ function responder(datos)
         $('#campovuelta').css("display", "none");
     } 
     else
+    {
+        $('#campovuelta').css("display", "block");
         $('#ida-tab').html('si');
+    }
+        
     $('#comen').html(datos.comentarios);
     $('#fecha').html(datos.salida);
     $('#klm').html(datos.distancia);
