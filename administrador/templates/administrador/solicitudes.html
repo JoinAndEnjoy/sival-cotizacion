@@ -30,9 +30,83 @@ Solicitudes
         </table>
     </div>
 </div>
+
+
+
+<div class="panel panel-default" style="display: none" id="contenedor2">
+    <div class="panel-heading titulo">
+        <h3>Resumen de solicitud</h3>
+    </div>
+    <div class="table-responsive interior">
+        <div class="mi-contenedor">
+            <div class="row mi-row">
+                <div class="col-sm-8 col-sm-offset-2" >
+                    <span class="col-sm-12" id="resumen"></span>
+                    <div class="col-sm-6">
+                        <table  id='tabla-trayecto'class="table table-striped panel panel-default" > 
+                            <thead>
+                                <tr>
+                                    <th  style="width:50%" class="superior" id="s1">Trayecto de ida</th>
+                                    <th  style="width:50%" id="s2">Trayecto de vuelta </th>                                                            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row" class="odd">
+                                    <th>Fecha de salida</th>
+                                    <td><span id="fecha">20-10-2015</span></td>                                                               
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <th>hora de salida</th>
+                                    <td><span id="hora">2:30pm</span></td>                                                               
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <th>Km recorridos</th>
+                                    <td><span id="klm">2:30pm</span></td>                                                               
+                                </tr>
+                            </tbody>
+                        </table>  
+                        <button class="btn m-b-xs w-xs btn-primary" type="submit" style="width: 100%;margin-top: -10px;" id="but">Ve r mapa</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <table  id='tabla-info'class="table table-striped panel panel-default" > 
+                            <thead>
+                                <tr>
+                                    <th style="width:50%">Nombre</th>
+                                    <td style="width:50%;padding-left: 15px;" id="nom-tab">Carlos roso</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr role="row" class="odd">
+                                    <th>Email</th>
+                                    <td id="em-tab">Carlos roso</td>
+                                </tr>                                                        
+                                <tr role="row" class="odd">
+                                    <th>Fecha de solicitud</th>
+                                    <td id="fes-tab">20-10-2015</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <th>Ida y vuelta</th>
+                                    <td id="ida-tab">si</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="panel panel-default comentarios">
+                            <span>Comentarios:</span>
+                            <br>
+                            <label id="comen">Hola esto es un comek as sdf sad fsa fas df asd fsa df sad fasd f asd fasd fas df asd fa f asd f</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block script %}
+<script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/solicitud.js' %}"></script>
 <script type="text/javascript" src="{% static 'administrador/js/jquery.number.min.js' %}"></script>
 {% endblock %}

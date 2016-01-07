@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var daton;
+var camino=1;
 
 $(document).ready(function (){
    var tabla = $('#tabla-solicitud').DataTable(
@@ -44,10 +46,13 @@ $(document).ready(function (){
                     }
                 ]
            });
-           
+
     $('#tabla-solicitud tbody').on('click', 'button', function () {
-       var data = this.id;
-        alert(data); 
+        var row = $($(this).parent()).parent();
+        var fila = tabla.row(row).data();
+        responder(fila);
+        $('#contenedor2').css("display", "block");
+        $("html, body").animate({scrollTop: $('#contenedor2').offset().top}, 500);
     });
 });
 
