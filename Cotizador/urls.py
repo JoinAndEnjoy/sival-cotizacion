@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('formulario.urls', namespace="formulario")),
     url(r'administrador/', include('administrador.urls', namespace="administrador")),
+    url(r'propuesta/', include('propuesta.urls', namespace="propuesta")),
     url(r'^admin/', include(admin.site.urls)),
 ]
