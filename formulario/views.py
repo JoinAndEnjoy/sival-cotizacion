@@ -19,11 +19,12 @@ def crearRuta(request):
     cot.correo = dicconario.get('correo')
     cot.comentarios = dicconario.get('comentarios')
     cot.camino = dicconario.get('ruta')
-    cot.salida =datetime.datetime.strptime(dicconario.get('salida'), "%d/%m/%Y").strftime('%Y-%m-%d')
+    date = datetime.datetime.strptime(dicconario.get('salida'), "%m/%d/%Y %I:%M %p").strftime('%Y-%m-%d %H:%M')
+    cot.salida = date
     cot.distancia = dicconario.get('distancia')
     cot.distancia2 = dicconario.get('distancia2')
     if dicconario.get('regreso')!= "":
-        cot.regreso = datetime.datetime.strptime(dicconario.get('regreso'), "%d/%m/%Y").strftime('%Y-%m-%d')
+        cot.regreso = datetime.datetime.strptime(dicconario.get('regreso'), "%m/%d/%Y %I:%M %p").strftime('%Y-%m-%d %H:%M')
     cot.save()
     ruta1 = json.loads(dicconario.get('rutaIda'))
     for i, value in enumerate(ruta1):

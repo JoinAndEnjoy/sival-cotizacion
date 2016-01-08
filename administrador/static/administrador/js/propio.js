@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 var daton;
-var camino=1;
+var camino = 1;
 
 $(document).ready(function () {
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
 });
 
 $('#but').click(function () {
-    window.open('/mapa/informcacion/' + daton.id+'/'+camino);
+    window.open('/mapa/informcacion/' + daton.id + '/' + camino);
 });
 
 
@@ -76,41 +76,59 @@ function responder(datos)
     {
         $('#ida-tab').html('no');
         $('#campovuelta').css("display", "none");
-    } 
-    else
+        $('#text').css("display", "none");
+    } else
     {
         $('#campovuelta').css("display", "block");
         $('#ida-tab').html('si');
+        $('#text').css("display", "inline");
     }
-        
+
     $('#comen').html(datos.comentarios);
-    $('#fecha').html(datos.salida);
+    var mifecha = new Date((datos.salida || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
+    var date = mifecha.getFullYear() + '-' + (mifecha.getMonth() + 1) + '-' + mifecha.getDay();
+    var time = mifecha.toLocaleTimeString();
+    $('#fecha').html(date);
+    $('#hora').html(time);
     $('#klm').html(datos.distancia);
     daton = datos;
     $('#s2').removeClass('superior');
     $('#s1').addClass('superior');
-    $('#fecha').html(daton.salida);
-    $('#klm').html(daton.distancia);
+
     puntosIda("/administrador/rutaida/" + daton.id + "/");
 }
 
 $(document).ready(function () {
     $('#s1').click(function () {
-        camino=1;
+        camino = 1;
         $('#s2').removeClass('superior');
         $('#s1').addClass('superior');
-        $('#fecha').html(daton.salida);
+        var mifecha = new Date((daton.salida || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
+        var date = mifecha.getFullYear() + '-' + (mifecha.getMonth() + 1) + '-' + mifecha.getDay();
+        var time = mifecha.toLocaleTimeString();
+        $('#fecha').html(date);
+        $('#hora').html(time);
         $('#klm').html(daton.distancia);
         puntosIda("/administrador/rutaida/" + daton.id + "/");
     });
     $('#s2').click(function () {
-        camino=2;
-        $('#s1').removeClass('superior');
-        $('#s2').addClass('superior');
-        $('#fecha').html(daton.regreso);
-        $('#klm').html(daton.distancia2);
-        puntosIda("/administrador/rutavuelta/" + daton.id + "/");
+        if (daton.camino !== 1)
+        {
+            camino = 2;
+            $('#s1').removeClass('superior');
+            $('#s2').addClass('superior');
+            var mifecha = new Date((daton.regreso || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
+            var date = mifecha.getFullYear() + '-' + (mifecha.getMonth() + 1) + '-' + mifecha.getDay();
+            var time = mifecha.toLocaleTimeString();
+            $('#fecha').html(date);
+            $('#hora').html(time);
+            $('#klm').html(daton.distancia2);
+            puntosIda("/administrador/rutavuelta/" + daton.id + "/");
+        }
+
     });
+
+
 
 });
 
@@ -172,7 +190,7 @@ $('#form-origen').on('submit', function (event) {
             cm2: c2,
             cm3: c3
         };
-        $('#load-block').css('display','block');
+        $('#load-block').css('display', 'block');
         create_post(vector);
     }
 });
@@ -180,7 +198,7 @@ $('#form-origen').on('submit', function (event) {
 
 // ajax metodos
 function create_post(vector) {
-    
+
     $.ajax({
         url: "/administrador/guardar/", // the endpoint
         type: "POST", // http method
@@ -188,7 +206,7 @@ function create_post(vector) {
 
         // handle a successful response
         success: function (mensaje) {
-            $('#load-block').css('display','none');
+            $('#load-block').css('display', 'none');
             swal({
                 title: "Enviado",
                 text: "La propuesta se envio correctamente",

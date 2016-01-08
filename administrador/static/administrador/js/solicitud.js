@@ -33,9 +33,9 @@ $(document).ready(function (){
                     {"mData": 'respondido',
                         "mRender": function (o) {
                             if (o)
-                                return 'si';
+                                return '<p class="verde">Si</p>';
                             else
-                                return 'no';
+                                return '<p class="rojo">No</p>';
                         }
                     },
                     {"mData": null,
@@ -50,6 +50,7 @@ $(document).ready(function (){
     $('#tabla-solicitud tbody').on('click', 'button', function () {
         var row = $($(this).parent()).parent();
         var fila = tabla.row(row).data();
+        $('#kk').html(fila.com);
         responder(fila);
         $('#contenedor2').css("display", "block");
         $("html, body").animate({scrollTop: $('#contenedor2').offset().top}, 500);

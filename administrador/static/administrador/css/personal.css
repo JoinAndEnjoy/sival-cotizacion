@@ -7,7 +7,17 @@ and open the template in the editor.
     Created on : 15/12/2015, 04:34:11 PM
     Author     : jose
 */
+.verde
+{
+    text-align: center;
+    color: #27c24c;
+}
 
+.rojo
+{
+    text-align: center;
+    color: red;
+}
 .titulo h1
 {
     margin-top: 10px;

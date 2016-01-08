@@ -77,11 +77,17 @@ def jsonSolicitudes(request):
         punto2 = Punto.objects.filter(cotizacion_id = cot.get('id')).filter(camino='DS').filter(secuencia=0)[0]
         cot['origen'] = punto1.nombre
         cot['destino'] = punto2.nombre
-        formu = formulario.objects.get(cotizacion_id = cot.get('id'))
-        cot['pida'] = formu.precioIda
-        cot['pregreso'] = formu.precioRegreso
-        cot['com'] = formu.comentarios
-        lista.append(cot)        
+        try:
+            formu = formulario.objects.get(cotizacion_id = cot.get('id'))
+            cot['pida'] = formu.precioIda
+            cot['pregreso'] = formu.precioRegreso
+            cot['com'] = formu.comentarios
+            lista.append(cot) 
+        except formulario.DoesNotExist:
+            cot['pida'] = 0
+            cot['pregreso'] = 0
+            cot['com'] = ''
+            lista.append(cot) 
     dic = {"aaData":lista}
     serial2 = json.dumps(dic, cls=DjangoJSONEncoder)
     return HttpResponse(serial2)

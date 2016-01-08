@@ -8,8 +8,8 @@ var map;
 var directionsDisplay;
 var directionsService;
 var inicio = true;
-var distance;
-var distance2;
+var distance=0;
+var distance2=0;
 
 var markers = [];
 var markers2 = [];
@@ -157,7 +157,11 @@ function agregarListenerInternal(searchBoxn, index) {
         if (inicio)
             internalmark.splice(indice, 1, markersn[0]);
         else
+        {
             internalmark2.splice(index, 1, markersn[0]);
+            $('input:radio[id=switch-on]').prop('checked', true);
+        }
+            
         calcRoute();
     });
 }
@@ -206,9 +210,10 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
-            
-            distance = darDistancia(result);
-            distance2 = darDistancia(result);
+            if(inicio)
+                distance = darDistancia(result);
+            else
+                distance2 = darDistancia(result);
             eliminarMarks();
         }
         else

@@ -71,10 +71,7 @@
                                                             <i class="fa fa-exclamation iconos-validation" id="ic-fecha"></i>
                                                             <script type="text/javascript">
                                                                 $(function () {
-                                                                $('#fecha1').datetimepicker({
-                                                                viewMode: 'days',
-                                                                        format: 'DD/MM/YYYY'
-                                                                });
+                                                                $('#fecha1').datetimepicker();
                                                                 });
                                                             </script>
                                                         </div>
@@ -89,10 +86,7 @@
                                                         <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
                                                         <script type="text/javascript">
                                                             $(function () {
-                                                            $('#fecha2').datetimepicker({
-                                                            viewMode: 'days',
-                                                                    format: 'DD/MM/YYYY'
-                                                            });
+                                                            $('#fecha2').datetimepicker();
                                                             });
                                                         </script>
                                                     </div>
@@ -126,10 +120,10 @@
                                     
                                     <div class="container-s">
                                         <div class="switch white">
-                                            <input type="radio" name="switch" id="switch-off" value="1">
-                                            <input type="radio" name="switch" id="switch-on" value="2"checked>
-                                            <label for="switch-off">Solo_ida</label>
-                                            <label for="switch-on">Ida-regreso</label>
+                                            <input type="radio" name="switch" id="switch-off" value="1" checked>
+                                            <input type="radio" name="switch" id="switch-on" value="2" >
+                                            <label for="switch-off">Solo ida</label>
+                                            <label for="switch-on">Ida regreso</label>
                                             <span class="toggle"></span>
                                         </div> 
                                     </div> 

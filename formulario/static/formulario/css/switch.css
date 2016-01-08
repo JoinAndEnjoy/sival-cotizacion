@@ -52,17 +52,18 @@ input[type="radio"] {
     -o-transition: color .2s ease;
     transition: color .2s ease;
     width: 0px;
+    min-width: 76px;
 }
 
 .switch label:nth-of-type(1) {
-    left: -127%;
+    left: -163%;
     position: absolute;
     text-align: right;
 }
 
 .switch label:nth-of-type(2) {
     position: absolute;
-    right: -15%;
+    right: -163%;
     text-align: left;
 }
 
