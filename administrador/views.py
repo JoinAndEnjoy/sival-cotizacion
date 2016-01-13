@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 
 
 BASE_DIR = '127.0.0.1:8000'
-BASE_DIR_PROPUESTA = BASE_DIR+"/administrador/propuesta/"
+BASE_DIR_PROPUESTA = BASE_DIR+"/propuesta/"
 
 # Create your views here.
 

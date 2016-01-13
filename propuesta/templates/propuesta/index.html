@@ -41,7 +41,7 @@ and open the template in the editor.
                     <div class="frace">
                         <p>Donde quieras que vayas,</p>
                         <p>ve con todo tu corazón.</p>
-                        <span class="cent">Conficio</span>
+                        <span class="cent">Confucio</span>
                     </div>
                 </div>    
                 <div class="box sidebar">
@@ -55,7 +55,7 @@ and open the template in the editor.
                 </div>  
             </div>  
             <div class="footer">
-                <a href="" class="btn">ver propuesta</a>
+                <a href="{% url 'propuesta:ver' propuesta.slug %}" class="btn">ver propuesta</a>
             </div>
         </div>
         <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>

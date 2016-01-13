@@ -142,8 +142,175 @@ h2
     font-family: 'Cardo';
     text-transform: uppercase;
     border: 1px solid #E55834;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     letter-spacing: 2px;
     border-radius: 0px;
 }
 
+.arriba
+{
+    height: 50%;
+    background: url(../img/fondo2.jpg) no-repeat center center;
+    text-align: center;
+}
+
+.micontenedor
+{
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.texto
+{
+    display: table-cell;
+    vertical-align: middle;
+    color: white;
+    
+}
+
+.texto h1{
+    font-size: 50px;
+    font-family: 'Montserrat';
+}
+
+.texto span
+{
+    font-size: 25px;
+}
+.texto p{
+    font-size: 20px;
+}
+
+
+
+.centro
+{
+    padding-top: 120px;
+    height: 50%;
+}
+
+.contenedor
+{
+    padding-left: 30%;
+    padding-right: 30%;
+    font-family: 'Cardo';
+}
+
+.contenedor h1
+{
+    color: black;
+    font-size: 35px;
+    font-family: 'Montserrat';
+    margin-bottom: 20px;
+}
+
+.contenedor h2
+{
+    color: #BCBCBC;
+    margin: 0px;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 100;
+    
+}
+
+.contenedor p
+{
+    line-height: 34px;
+    font-size: 18px;
+    text-align: justify;
+    font-family: 'Cardo';
+}
+
+.contenedor span
+{
+    height: 1px;
+    width: 35%;
+    background-color: #BCBCBC;
+    display: block;
+    margin-bottom: 50px;
+    margin-top: 52px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-pro
+{
+    display: flex;
+}
+
+.container-pro div
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-normal
+{
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: black;
+    background-color: white;
+    border: 1px solid #BCBCBC;
+    font-size: 18px;
+}
+
+.btn-normal:hover
+{
+    background-color: #57E378;
+    color: white;
+}
+
+.selecionado
+{
+    background-color: #57E378;
+    border-color: #57E378;
+    color: white;
+}
+
+.informacion
+{
+    display: none;
+}
+
+.informacion p
+{
+    color: #909090;
+    text-align: center;
+    font-size: 12px;
+}
+
+.informacion a
+{
+    color: white;
+    background-color: #E8572A;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.tabla
+{
+    width: 100%;
+    font-size: 18px;
+}
+
+.tabla tr th,td
+{
+    border: 1px solid #BCBCBC;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 50%;
+}
+
+.tabla tr th
+{
+    background-color: #E8E7E7;
+    font-weight: normal;
+}

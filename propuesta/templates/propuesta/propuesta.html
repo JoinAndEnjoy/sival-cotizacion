@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sival propuesta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'formulario/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'propuesta/css/principal.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="arriba">
+            <div class="micontenedor">
+                <div class="texto">
+                    <h1>Propuesta comercial</h1>
+                    <p>Preparada para <span> {{cotizacion.nombre}} </span> por <span>Trasporte Sival</span></p>
+                    <p>{{cotizacion.fecha}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="centro">
+            <div class="contenedor">
+                <h1>Transporte Sival</h1>
+                <h2>Definición:</h2>
+                <p>El transporte es una actividad del sector terciario, entendida como el desplazamiento de objetos o personas de un lugar (punto de origen) a otro (punto de destino) en un vehículo (medio o sistema de transporte) que utiliza una determinada infraestructura (red de transporte). Esta ha sido una de las actividades terciarias que mayor expansión ha experimentado a lo largo de los últimos dos siglos, debido a la industrialización; al aumento del comercio y de los desplazamientos humanos tanto a escala nacional como internacional; y los avances técnicos que se han producido y que han repercutido en una mayor rapidez, capacidad, seguridad y menor coste de los transportes.</p>
+                <span></span>
+            </div>
+            <div class="contenedor">
+                <h1>Propuesta económica</h1>
+                <p>Selecciona el tipo de bus en el cual desea viajar.</p>
+                <div class="container-pro">
+                    <div class="col-sm-6">
+                        <button class="btn-normal" id="btn1">Bus Estándar</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn-normal" id="btn2">Bus Premium</button>
+                    </div>
+                </div>    
+                <div class="informacion">
+                    <p>Caracteristicas del bus</p>
+                    <table class="tabla" >                    
+                        <tbody>
+                            <tr>
+                                <th>Capacidad</th>
+                                <td id="t1">20-10-2015</td>                                                               
+                            </tr>
+                            <tr>
+                                <th >Modelo</th>
+                                <td id="t2">2:30pm</td>                                                               
+                            </tr>
+                            <tr>
+                                <th>Televisor</th>
+                                <td id="t3">2:30pm</td>                                                               
+                            </tr>
+                            <tr>
+                                <th>Wifi a bordo</th>
+                                <td id="t4">2:30pm</td>                                                               
+                            </tr>
+                            <tr>
+                                <th>bluetooth conectado a parlantes</th>
+                                <td id="t5">2:30pm</td>                                                               
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Trayecto ida</p>
+                    <table class="tabla" id="tab-origen">
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div style="margin-top: 15px;text-align: right;">
+                        <a href="{% url 'formulario:verMapa2' cotizacion.pk 1%}" target="_blank">Ver recorrido en mapa</a>
+                    </div>
+                    
+                    {% if cotizacion.camino == 2%}
+                    <p>Trayecto regreso</p>
+                    <table class="tabla" id="tab-regreso">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <div style="margin-top: 15px;text-align: right;">
+                        <a href="{% url 'formulario:verMapa2' cotizacion.pk 2%}" target="_blank">Ver recorrido en mapa</a>
+                    </div>
+                    {% endif %}
+                </div>                                
+                <span></span>
+            </div>       
+            <div class="contenedor">
+                <h1>
+                    Somos tu mejor opción
+                </h1>
+                <p>
+                    Nos apaciona el sector de trasnporte y la calida del servicio. Por esto, queremos darte lo mejor y hacerte sentir muy bien. Al aceptar nuestra propuesta nos pondremos en contacto contigo para ajustar los términos y condiciones del contrato
+                </p>
+                <span></span>
+            </div>
+        </div>
+        <script type="text/javascript"> 
+            var idcot = "{{cotizacion.pk}}";
+            var cot = '{{serial}}';
+            var precio = {
+                ida : '{{propuesta.precioIda}}',
+                regreso: '{{propuesta.precioRegreso}}'
+            };
+        </script>
+        <script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery/dist/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'propuesta/js/principal.js' %}"></script>
+    </body>
+</html>
+
