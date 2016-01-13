@@ -154,6 +154,38 @@ h2
     text-align: center;
 }
 
+.abajo
+{
+    height: 30%;
+    width: 100%;
+    background-color: #1C2826;
+    text-align: center;
+    color: white;
+    display: table
+}
+
+.abajo h1{
+    font-size: 40px;    
+    font-family: 'Montserrat';
+    margin-bottom: 20px;
+}
+
+.abajo p{
+    font-family: 'Cardo';
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.abajo button
+{
+    margin-top: 30px;
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 5px 40px 5px 40px;
+    font-family: 'Cardo';
+}
+
 .micontenedor
 {
     position: relative;
@@ -189,6 +221,7 @@ h2
 {
     padding-top: 120px;
     height: 50%;
+    display: initial;
 }
 
 .contenedor
