@@ -13,6 +13,7 @@ class formulario(models.Model):
     comentarios = models.CharField(max_length=200,null=True)
     cotizacion= models.ForeignKey(Cotizacion,on_delete=models.CASCADE)
     slug = models.SlugField(max_length = 100, unique = True)
+    vista = models.BooleanField(default = False)
         
     
     

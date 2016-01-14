@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.core.serializers.json import DjangoJSONEncoder
 import json
 from django.core import serializers
+from propuesta.models import Confirmacion
 # Create your views here.
 
 def propuesta(request,slug):
@@ -16,7 +17,22 @@ def propuesta(request,slug):
 
 def ver(request,slug):
     propuesta = get_object_or_404(formulario,slug = slug)
+    propuesta.vista = True
+    propuesta.save()
     cotizacion = get_object_or_404(Cotizacion,pk = propuesta.cotizacion_id)
     serial = serializers.serialize('json', [ cotizacion, ])
     context = {'propuesta':propuesta,'cotizacion':cotizacion,'serial':serial}    
     return render(request,'propuesta/propuesta.html',context)
+
+def datosCotizador(request):
+    cotizacion = get_object_or_404(Cotizacion,pk = request.POST['idcot'])
+    confirmacion = Confirmacion()
+    confirmacion.puestos = request.POST['puestos']
+    confirmacion.cedula = request.POST['identificacion']
+    confirmacion.telefono = request.POST['telefono']
+    confirmacion.tipo = request.POST['tipo']
+    confirmacion.cotizacion = cotizacion
+    confirmacion.save()
+    
+    con = get_object_or_404(Confirmacion,pk = confirmacion.pk)
+    return HttpResponse('ok')

@@ -13,6 +13,7 @@ and open the template in the editor.
         <link href="{% static 'formulario/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'propuesta/css/principal.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="{% static 'sweetalert/dist/sweetalert.css' %}" rel="stylesheet">
     </head>
     <body>
         <div class="arriba">
@@ -100,21 +101,24 @@ and open the template in the editor.
                 <p>
                     Nos apaciona el sector de trasnporte y la calida del servicio. Por esto, queremos darte lo mejor y hacerte sentir muy bien. Al aceptar nuestra propuesta nos pondremos en contacto contigo para ajustar los términos y condiciones del contrato
                 </p>
-                <div class="formulario">
-                    <div style="position: relative">
-                        <input type="text" placeholder="Numero de puestos">
-                        <i class="fa fa-ticket fa-2x mis-iconos"></i>
+                <form method="post" id="formulario-repsuetsa">
+                    {% csrf_token %} 
+                    <div class="formulario">
+                        <div style="position: relative">
+                            <input type="text" placeholder="Numero de puestos">
+                            <i class="fa fa-ticket fa-2x mis-iconos"></i>
+                        </div>
+                        <div style="position: relative">
+                            <input type="text" placeholder="Cedula o NIT">
+                            <i class="fa fa-credit-card fa-2x mis-iconos"></i>
+                        </div>
+                        <div style="position: relative">
+                            <input type="text" placeholder="Telefono">
+                            <i class="fa fa-phone fa-2x mis-iconos"></i>
+                        </div>                    
+                        <button>Aceptar propuesta</button>
                     </div>
-                    <div style="position: relative">
-                        <input type="text" placeholder="Cedula o NIT">
-                        <i class="fa fa-credit-card fa-2x mis-iconos"></i>
-                    </div>
-                    <div style="position: relative">
-                        <input type="text" placeholder="Telefono">
-                        <i class="fa fa-phone fa-2x mis-iconos"></i>
-                    </div>                    
-                    <button>Aceptar propuesta</button>
-                </div>
+                </form>
                 <span></span>
             </div>
         </div>
@@ -141,6 +145,7 @@ and open the template in the editor.
         </script>
         <script type="text/javascript" src="{% static 'administrador/libs/jquery/jquery/dist/jquery.js' %}"></script>
         <script type="text/javascript" src="{% static 'propuesta/js/principal.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sweetalert/dist/sweetalert.min.js' %}"></script>
     </body>
 </html>
 
