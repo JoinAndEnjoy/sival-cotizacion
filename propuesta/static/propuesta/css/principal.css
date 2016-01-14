@@ -350,3 +350,31 @@ h2
     font-weight: normal;
     color: #909090;
 }
+
+.formulario
+{
+    padding-left: 25%;
+    padding-right: 25%;
+    font-family: 'Montserrat';
+    
+}
+
+.formulario input
+{
+    width: 100%;
+    padding-bottom: 15px;
+    margin-bottom: -1px;
+    padding-top: 15px;
+    padding-left: 50px;
+    border: 1px solid #BCBCBC;
+}
+
+.formulario button
+{
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: none;
+    background-color: #E8572A;
+    color: white;
+}
