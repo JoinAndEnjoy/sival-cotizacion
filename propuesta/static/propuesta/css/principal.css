@@ -316,15 +316,17 @@ h2
 {
     color: #909090;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .informacion a
 {
     color: white;
     background-color: #E8572A;
-    padding: 5px;
+    padding: 10px;
     margin-top: 10px;
+    font-family: 'Montserrat';
+    font-size: 10px;
 }
 
 .tabla
@@ -337,13 +339,14 @@ h2
 {
     border: 1px solid #BCBCBC;
     padding-left: 15px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-top: 15px;
     width: 50%;
 }
 
 .tabla tr th
 {
-    background-color: #E8E7E7;
+    background-color: #FBFBFB;
     font-weight: normal;
+    color: #909090;
 }
