@@ -82,6 +82,7 @@ def jsonSolicitudes(request):
             cot['pida'] = formu.precioIda
             cot['pregreso'] = formu.precioRegreso
             cot['com'] = formu.comentarios
+            cot['vista'] = formu.vista
             lista.append(cot) 
         except formulario.DoesNotExist:
             cot['pida'] = 0

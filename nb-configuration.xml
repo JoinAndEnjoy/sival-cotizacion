@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-shared-configuration>
+    <!--
+This file contains additional configuration written by modules in the NetBeans IDE.
+The configuration is intended to be shared among all the users of project and
+therefore it is assumed to be part of version control checkout.
+Without this configuration present, some functionality in the IDE may be limited or fail altogether.
+-->
+    <preferences xmlns="http://www.netbeans.org/ns/auxiliary-configuration-preferences/1">
+        <module name="org-netbeans-modules-html-editor-lib">
+            <property name="default-html-public-id" value="-//W3C//DTD HTML 3.2 Final//EN"/>
+        </module>
+        <module name="org-netbeans-modules-editor-indent">
+            <node name="CodeStyle"/>
+        </module>
+    </preferences>
+</project-shared-configuration>

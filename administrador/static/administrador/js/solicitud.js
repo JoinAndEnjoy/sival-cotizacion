@@ -38,6 +38,14 @@ $(document).ready(function (){
                                 return '<p class="rojo">No</p>';
                         }
                     },
+                    {"mData": 'vista',
+                        "mRender": function (o) {
+                            if (o)
+                                return '<p class="verde">Si</p>';
+                            else
+                                return '<p class="rojo">No</p>';
+                        }
+                    },
                     {"mData": null,
                         "bSortable": false,
                         "mRender": function (o) {

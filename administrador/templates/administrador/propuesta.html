@@ -1,14 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<label>precio ida: </label>{{cm1}}
-<br>
-<label>precio devuelta: </label>{{cm2}}
-<br>
-<label>comentarios: </label>{{cm3}}
-</body>
-</html>
+{% extends "administrador/index.html" %}
+{% load staticfiles %}
+
+{% block link %}
+{% endblock %}
+
+{% block title %}
+Propuestas
+{% endblock %}
+
+{% block body %}
+<div class="panel panel-default">
+    <div class="panel-heading titulo">
+        <h2>Solicitudes</h2>
+    </div>
+    <div class="table-responsive">
+
+        <table  id='tabla-solicitud'class="table table-striped b-t b-b" > 
+            <thead>
+                <tr>
+                    <th  style="width:20%">Fecha propuesta</th>
+                    <th  style="width:20%">Numero pasajeros</th>
+                    <th  style="width:20%">Identificación</th>
+                    <th  style="width:10%">Telefono</th>  
+                    <th  style="width:10%">Tipo bus</th>                        
+                    <th  style="width:20%"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'administrador/js/propio.js' %}"></script>
+<script type="text/javascript" src="{% static 'administrador/js/propuestas.js' %}"></script>
+{% endblock %}
