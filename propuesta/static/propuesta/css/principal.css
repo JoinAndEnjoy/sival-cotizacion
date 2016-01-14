@@ -95,13 +95,13 @@ h2
 
 .frace
 {
-    margin-top: 25px;
+    margin-top: 50px;
 }
 .frace p{
     margin: 0px;
     font-family: 'Cardo';  
     font-style: italic;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .cent
@@ -139,12 +139,17 @@ h2
 .btn
 {
     color: #E55834;
-    font-family: 'Cardo';
+    font-family: 'Montserrat';
+    font-size: 10px;
     text-transform: uppercase;
-    border: 1px solid #E55834;
-    margin-bottom: 50px;
+    border: 2px solid #E55834;
+    margin-bottom: 30px;
     letter-spacing: 2px;
     border-radius: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .arriba
