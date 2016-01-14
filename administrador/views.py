@@ -6,6 +6,7 @@ import json
 from administrador.models import formulario
 from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
+from propuesta.models import Confirmacion
 
 
 BASE_DIR = '127.0.0.1:8000'
@@ -94,6 +95,7 @@ def jsonSolicitudes(request):
     return HttpResponse(serial2)
     
 def jsonPropuestas(request):
+    confirmaciones = Confirmacion.objects.all().values()
     return HttpResponse('ok')
     
     
