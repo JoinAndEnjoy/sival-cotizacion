@@ -70,6 +70,9 @@ def darPropuesta(request,slug):
 def HistorialSolicitud(request):
     return render(request,'administrador/solicitudes.html')
 
+def HistorialPropuestas(request):
+    return render(request,'administrador/propuesta.html')
+
 def jsonSolicitudes(request):
     cotizaciones = Cotizacion.objects.all().values()
     lista = []
@@ -96,7 +99,10 @@ def jsonSolicitudes(request):
     
 def jsonPropuestas(request):
     confirmaciones = Confirmacion.objects.all().values()
-    return HttpResponse('ok')
+#     serial = json.dumps(list(confirmaciones), cls=DjangoJSONEncoder)
+    dic = {"aaData":list(confirmaciones)}
+    serial2 = json.dumps(dic, cls=DjangoJSONEncoder)
+    return HttpResponse(serial2)
     
     
     
