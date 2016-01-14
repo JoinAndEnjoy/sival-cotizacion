@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^propuesta/(?P<slug>[^\.]+)/$', views.darPropuesta, name='propuesta'),
     url(r'^solicitudes/$', views.HistorialSolicitud, name='solicitud'),
     url(r'^json2/$', views.jsonSolicitudes, name='getjson2'),
+    url(r'^json3/$', views.jsonPropuestas, name='getjson3'),
 ]

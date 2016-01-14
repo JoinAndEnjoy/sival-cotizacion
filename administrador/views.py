@@ -93,7 +93,8 @@ def jsonSolicitudes(request):
     serial2 = json.dumps(dic, cls=DjangoJSONEncoder)
     return HttpResponse(serial2)
     
-
+def jsonPropuestas(request):
+    return HttpResponse('ok')
     
     
     
