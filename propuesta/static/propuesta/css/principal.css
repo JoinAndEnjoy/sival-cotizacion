@@ -369,6 +369,11 @@ h2
     border: 1px solid #BCBCBC;
 }
 
+.formulario input:focus + .mis-iconos
+{
+    color: black;
+}
+
 .formulario button
 {
     width: 100%;
@@ -377,4 +382,17 @@ h2
     border: none;
     background-color: #E8572A;
     color: white;
+}
+
+.mis-iconos
+{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #A9A9AE;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }

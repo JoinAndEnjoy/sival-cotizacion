@@ -12,6 +12,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{% static 'formulario/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'propuesta/css/principal.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="arriba">
@@ -100,9 +101,18 @@ and open the template in the editor.
                     Nos apaciona el sector de trasnporte y la calida del servicio. Por esto, queremos darte lo mejor y hacerte sentir muy bien. Al aceptar nuestra propuesta nos pondremos en contacto contigo para ajustar los términos y condiciones del contrato
                 </p>
                 <div class="formulario">
-                    <input type="text" placeholder="Numero de puestos">
-                    <input type="text" placeholder="Cedula o NIT">
-                    <input type="text" placeholder="Telefono">
+                    <div style="position: relative">
+                        <input type="text" placeholder="Numero de puestos">
+                        <i class="fa fa-ticket fa-2x mis-iconos"></i>
+                    </div>
+                    <div style="position: relative">
+                        <input type="text" placeholder="Cedula o NIT">
+                        <i class="fa fa-credit-card fa-2x mis-iconos"></i>
+                    </div>
+                    <div style="position: relative">
+                        <input type="text" placeholder="Telefono">
+                        <i class="fa fa-phone fa-2x mis-iconos"></i>
+                    </div>                    
                     <button>Aceptar propuesta</button>
                 </div>
                 <span></span>
