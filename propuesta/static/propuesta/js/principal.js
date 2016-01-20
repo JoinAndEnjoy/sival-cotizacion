@@ -49,7 +49,7 @@ $(document).ready(function (){
     month[10] = "Noviembre";
     month[11] = "Diciembre";
     
-    $('#fechaCotizacion').html(fecha.getDay()+ ' de ' + month[fecha.getMonth()]+ ' de '+ fecha.getFullYear());
+    $('#fechaCotizacion').html(fecha.getDate()+ ' de ' + month[fecha.getMonth()]+ ' de '+ fecha.getFullYear());
     $('#fechaCotizacion').css('font-family', 'Cardo');
     
 });
@@ -79,7 +79,7 @@ function llenarTabla(tipo)
                                                         <\tr>');
             }
             var fechaSalida = new Date((coti[0].fields.salida || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
-            var date = fechaSalida.getFullYear() + '-' + (fechaSalida.getMonth() + 1) + '-' + fechaSalida.getDay();
+            var date = fechaSalida.getFullYear() + '-' + (fechaSalida.getMonth() + 1) + '-' + fechaSalida.getDate();
             var time = fechaSalida.toLocaleTimeString();
             $('#tab-origen > tbody:last-child').append('<tr class="hijos">\
                                                         <th>Fecha de salida</th>\
@@ -122,7 +122,7 @@ function llenarTabla(tipo)
                                                         <\tr>');
                 }
                 var fechaSalida = new Date((coti[0].fields.salida || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
-                var date = fechaSalida.getFullYear() + '-' + (fechaSalida.getMonth() + 1) + '-' + fechaSalida.getDay();
+                var date = fechaSalida.getFullYear() + '-' + (fechaSalida.getMonth() + 1) + '-' + fechaSalida.getDate();
                 var time = fechaSalida.toLocaleTimeString();
                 $('#tab-regreso > tbody:last-child').append('<tr class="hijos">\
                                                         <th>Fecha de salida</th>\

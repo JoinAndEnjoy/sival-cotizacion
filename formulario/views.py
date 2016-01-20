@@ -17,10 +17,12 @@ def crearRuta(request):
     cot = Cotizacion()
     cot.nombre = dicconario.get('nombre')
     cot.correo = dicconario.get('correo')
+    cot.puestos = dicconario.get('puestos')
     cot.comentarios = dicconario.get('comentarios')
     cot.camino = dicconario.get('ruta')
     date = datetime.datetime.strptime(dicconario.get('salida'), "%m/%d/%Y %I:%M %p").strftime('%Y-%m-%d %H:%M')
     cot.salida = date
+    
     cot.distancia = dicconario.get('distancia')
     cot.distancia2 = dicconario.get('distancia2')
     if dicconario.get('regreso')!= "":

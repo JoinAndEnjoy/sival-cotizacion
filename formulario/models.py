@@ -14,6 +14,7 @@ class Cotizacion(models.Model):
     distancia = models.DecimalField(max_digits=100, decimal_places=5)
     distancia2 = models.DecimalField(max_digits=100, decimal_places=5, null=True)
     respondido = models.BooleanField(default=False)
+    puestos = models.IntegerField()
     def __unicode__(self):  # __unicode__ on Python 2
         return (self.nombre + " / %s")%(str(self.fecha))
     

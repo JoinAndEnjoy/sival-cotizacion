@@ -15,6 +15,7 @@ $(document).ready(function (){
                     "url": "/administrador/json3/",
                     "type": "GET"
                 },
+                "order": [[ 0, "desc" ]],
                 "aoColumns": [
                     {"mData": 'fecha'},
                     {"mData": 'puestos'},

@@ -290,7 +290,7 @@ $('#definir-ruta').click(function () {
         $('#puntos-div').append("<div class = 'punto-int'>\
 				<div class='inner-addon left-addon' >\
 				<input type='text' name='origen' id='intermedio" + numPun + "'\
-				placeholder='Punto intermedio " + numPun + "' class='botones-fomulario punto-int-input' required>\
+				placeholder='Punto intermedio " + numPun + "' class='botones-fomulario punto-int-input' >\
 				<i class='glyphicon glyphicon-map-marker mis-iconos'></i> \
 		</div>");
 
@@ -322,7 +322,7 @@ $('#definir-ruta-regreso').click(function () {
 				<div id='conttt'>\
                                 <div class='inner-addon left-addon'>\
 				<input type='text' name='origen' id='intermedio2" + numPun2 + "'\
-				placeholder='Punto intermedio " + numPun2 + "' class='botones-fomulario punto-int-input' required>\
+				placeholder='Punto intermedio " + numPun2 + "' class='botones-fomulario punto-int-input'>\
 				<i class='glyphicon glyphicon-map-marker mis-iconos'></i>\
                                 </div>\
 		</div>");
@@ -406,6 +406,15 @@ $("#destino").change(function () {
     }
 
 });
+
+$("#puestos").change(function () {
+    if (!(!$("#puestos").val()))
+    {
+        $('#ic-puestos').css("opacity", "0");
+        $("#puestos").removeAttr('style');
+    }
+
+});
 //validacion de los campos del formilario
 function validacionCampos()
 {
@@ -417,9 +426,16 @@ function validacionCampos()
     var nombre = $('#nombre');
     var punto1 = $('#origen');
     var punto2 = $('#destino');
+    var puesto = $('#puestos');
     var termino = true;
     var condicion = $("input[type='radio'][name='switch']:checked").val();
     
+    if(!puesto.val())
+    {
+        puesto.css("border", "1px solid #2e3436");
+        $('#ic-puesto').css("opacity", "1");
+        termino = false;
+    }
     if(!punto1.val())
     {
         punto1.css("border", "1px solid #2e3436");
@@ -460,7 +476,7 @@ function validacionCampos()
     {
         swal({
                 title: "Error",
-                text: "Deve seleccionar fecha de regreso",
+                text: "Debe seleccionar fecha de regreso",
                 type: "error",
                 confirmButtonText: "Aceptar"                
             });
@@ -480,7 +496,8 @@ function validacionCampos()
             comentarios: $('#comentarios').val(),
             ruta :condicion,
             distancia: distance,
-            distancia2: distance2
+            distancia2: distance2,
+            puestos: puesto.val()
         };
         
         return JSON.stringify(respuesta);

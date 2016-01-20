@@ -16,7 +16,9 @@ $(document).ready(function (){
                     "url": "/administrador/json2/",
                     "type": "GET"
                 },
+                "order": [[ 1, "desc" ]],
                 "aoColumns": [
+                    {"mData": 'id'},
                     {"mData": 'fecha'},
                     {"mData": 'origen'},
                     {"mData": 'destino'},

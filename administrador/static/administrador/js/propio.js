@@ -17,7 +17,9 @@ $(document).ready(function () {
                 "language": {
                     "url": "http://cdn.datatables.net/plug-ins/1.10.10/i18n/Spanish.json"
                 },
+                "order": [[ 2, "desc" ]],
                 "aoColumns": [
+                    {"mData": 'id'},
                     {"mData": 'nombre'},
                     {"mData": 'fecha'},
                     {"mData": 'origen'},
@@ -30,7 +32,16 @@ $(document).ready(function () {
                                 return 'si';
                         }
                     },
-                    {"mData": 'distancia'},
+                    {"mData": null,                        
+                        "mRender": function (o) {
+                            if (o.camino ===1 )
+                                return o.distancia;                       
+                            var d1 = parseFloat(o.distancia);
+                            var d2 = parseFloat(o.distancia2);
+                            var total = d1 + d2;
+                            return total;
+                        }
+                    },
                     {"mData": null,
                         "bSortable": false,
                         "mRender": function (o) {
@@ -72,6 +83,7 @@ function responder(datos)
     $('#nom-tab').html(datos.nombre);
     $('#em-tab').html(datos.correo);
     $('#fes-tab').html(datos.fecha);
+    $('#ida-puestos').html(datos.puestos);
     if (datos.camino === 1)
     {
         $('#ida-tab').html('no');
@@ -86,7 +98,7 @@ function responder(datos)
 
     $('#comen').html(datos.comentarios);
     var mifecha = new Date((datos.salida || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
-    var date = mifecha.getFullYear() + '-' + (mifecha.getMonth() + 1) + '-' + mifecha.getDay();
+    var date = mifecha.getFullYear() + '-' + (mifecha.getMonth() + 1) + '-' + mifecha.getDate();
     var time = mifecha.toLocaleTimeString();
     $('#fecha').html(date);
     $('#hora').html(time);
