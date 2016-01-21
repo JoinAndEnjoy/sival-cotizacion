@@ -36,6 +36,11 @@ function initMap()
         zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+    
+    map.addListener('rightclick', function (e) {       
+        agregarMarkerClick(e.latLng);
+    });
+    
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
@@ -68,6 +73,64 @@ function initMap()
 
     agregarListener("markers", searchBox);
     agregarListener("markers2", searchBox2);
+
+}
+
+function agregarMarkerClick(latLng)
+{
+    swal({   
+        title: "Puento seleccionado",   
+        text: "Seleccione sí es punto de origen o destino",   
+        type: "info",   
+        showCancelButton: true,   
+        confirmButtonColor: "#C1C1C1",       
+        confirmButtonText: "Origen",   
+        cancelButtonText: "Destino"},
+            function (isConfirm) {
+                if (isConfirm)
+                {
+                    $.ajax({
+                       url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+latLng.lat()+","+latLng.lng()+"&key=AIzaSyCQ5qOJEfI3UbjCmzCUE1H12fwE4_3-isc",
+                        success: function (mensaje) {
+                            $('#origen').val(mensaje.results[0].formatted_address);
+                            markers.forEach(function (marker)
+                            {
+                                marker.setMap(null);
+                            });
+                            markers = [];
+                            markers.push(new google.maps.Marker({
+                                position: latLng,
+                                map: map,
+                                title: mensaje.results[0].formatted_address
+                            }));
+
+                            calcRoute();
+                        }
+                    });
+
+                } else
+                {
+
+                    $.ajax({
+                        url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLng.lat() + "," + latLng.lng() + "&key=AIzaSyCQ5qOJEfI3UbjCmzCUE1H12fwE4_3-isc",
+                        success: function (mensaje) {
+                            $('#destino').val(mensaje.results[0].formatted_address);
+                            markers2.forEach(function (marker)
+                            {
+                                marker.setMap(null);
+                            });
+                            markers2 = [];
+                            markers2.push(new google.maps.Marker({
+                                position: latLng,
+                                map: map,
+                                title: mensaje.results[0].formatted_address
+                            }));
+                            calcRoute();
+                        }
+                    });
+                    
+                }
+            });
 
 }
 
@@ -167,11 +230,14 @@ function agregarListenerInternal(searchBoxn, index) {
 }
 
 
+
+
 function calcRoute() {
+    
     if (markers.length === 0 || markers2.length === 0) {
         return;
     }
-
+    directionsDisplay.setMap(map);
     waypts = [];
     var intep;
     if (inicio)
@@ -217,13 +283,21 @@ function calcRoute() {
             eliminarMarks();
         }
         else
-        {
+        {                                    
             swal({
                 title: "Error",
                 text: "No se puede trazar ruta",
                 type: "error",
-                confirmButtonText: "Aceptar"                
-            });
+                confirmButtonText: "Aceptar",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            });            
+            eliminarMarks();
+            markers = [];
+            markers2 = [];   
+            $('#origen').val('');
+            $('#destino').val('');
+            directionsDisplay.setMap(null);
         }
     });
 }
@@ -243,12 +317,10 @@ function eliminarMarks()
 {
     markers.forEach(function (marker) {
         marker.setMap(null);
-    });
-
+    });    
     markers2.forEach(function (marker) {
         marker.setMap(null);
     });
-
     internalmark.forEach(function (marker) {
         if (marker !== undefined)
             marker.setMap(null);
@@ -483,6 +555,17 @@ function validacionCampos()
         termino = false;
     }
     
+    if((markers.length === 0 || markers2.length===0) && termino)
+    {
+        swal({
+                title: "Error",
+                text: "Uno de los puntos de origen o destino no son validos",
+                type: "error",
+                confirmButtonText: "Aceptar"                
+            });
+        termino = false;
+    }
+    
     
     if (termino)
     {
@@ -551,14 +634,19 @@ function create_post(vector) {
                 confirmButtonText: "Aceptar",
                 html: true
             });
-        }
+        },
 
         // handle a non-successful response
-//		error : function(xhr,errmsg,err) {
-//		$('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
-//		" <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
-//		console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-//		}
+        error: function (xhr, errmsg, err) {
+            swal({
+                title: "Error",
+                text: "Problemas en el servidor",
+                type: "error",
+                confirmButtonText: "Aceptar",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            });          
+        }
     });
 };
 

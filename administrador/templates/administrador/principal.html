@@ -21,14 +21,14 @@ Panel principal
         <table  id='tabla-datos'class="table table-striped b-t b-b" > 
             <thead>
                 <tr>
-                    <th  style="width:5%">Id</th>
-                    <th  style="width:10%">Nombre</th>
-                    <th  style="width:15%">Fecha de solicitud</th>
-                    <th  style="width:15%">Punto de salida</th>
-                    <th  style="width:15%">Punto de llegada</th>
-                    <th  style="width:10%">Ida y vuelta</th>
-                    <th  style="width:15%">Kms recorridos</th>
-                    <th  style="width:15%"></th>
+                <th  style="width:5%">Id</th>
+                <th  style="width:10%">Nombre</th>
+                <th  style="width:15%">Fecha de solicitud</th>
+                <th  style="width:15%">Punto de salida</th>
+                <th  style="width:15%">Punto de llegada</th>
+                <th  style="width:10%">Ida y vuelta</th>
+                <th  style="width:15%">Kms recorridos</th>
+                <th  style="width:15%"></th>
                 </tr>
             </thead>
         </table>
@@ -48,12 +48,20 @@ Panel principal
                         <div class="panel-body">
                             <form role="form" id="form-origen">
                                 <div class="form-group">
-                                    <label>Precio trayecto ida</label>
-                                    <input type="number" class="form-control" id="cmp1">
+                                    <label>Precio trayecto ida</label>                                    
+                                    <div class="input-group m-b">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="number" class="form-control" id="cmp1">
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
                                 </div>
                                 <div class="form-group" id="campovuelta">
-                                    <label>Precio trayecto vuelta</label>
-                                    <input type="number" class="form-control" id="cmp2" >
+                                    <label>Precio trayecto vuelta</label>                                    
+                                    <div class="input-group m-b">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="number" class="form-control" id="cmp2" >
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Comentarios</label>
@@ -72,22 +80,22 @@ Panel principal
                         <table  id='tabla-trayecto'class="table table-striped panel panel-default" > 
                             <thead>
                                 <tr>
-                                    <th  style="width:50%" class="superior" id="s1">Trayecto de ida</th>
-                                    <th  style="width:50%" id="s2"><span id="text">Trayecto de vuelta</span> </th>                                                            
+                                <th  style="width:50%" class="superior" id="s1">Trayecto de ida</th>
+                                <th  style="width:50%" id="s2"><span id="text">Trayecto de vuelta</span> </th>                                                            
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr role="row" class="odd">
-                                    <th>Fecha de salida</th>
-                                    <td><span id="fecha">20-10-2015</span></td>                                                               
+                                <th>Fecha de salida</th>
+                                <td><span id="fecha">20-10-2015</span></td>                                                               
                                 </tr>
                                 <tr role="row" class="odd">
-                                    <th>hora de salida</th>
-                                    <td><span id="hora">2:30pm</span></td>                                                               
+                                <th>hora de salida</th>
+                                <td><span id="hora">2:30pm</span></td>                                                               
                                 </tr>
                                 <tr role="row" class="odd">
-                                    <th>Km recorridos</th>
-                                    <td><span id="klm">2:30pm</span></td>                                                               
+                                <th>Km recorridos</th>
+                                <td><span id="klm">2:30pm</span></td>                                                               
                                 </tr>
                             </tbody>
                         </table>  
@@ -97,28 +105,28 @@ Panel principal
                         <table  id='tabla-info'class="table table-striped panel panel-default" > 
                             <thead>
                                 <tr>
-                                    <th style="width:50%">Nombre</th>
-                                    <td style="width:50%;padding-left: 15px;" id="nom-tab">Carlos roso</td>
+                                <th style="width:50%">Nombre</th>
+                                <td style="width:50%;padding-left: 15px;" id="nom-tab">Carlos roso</td>
                                 </tr>
                             </thead>
 
                             <tbody>
 
                                 <tr role="row" class="odd">
-                                    <th>Email</th>
-                                    <td id="em-tab">Carlos roso</td>
+                                <th>Email</th>
+                                <td id="em-tab">Carlos roso</td>
                                 </tr>                                                        
                                 <tr role="row" class="odd">
-                                    <th>Fecha de solicitud</th>
-                                    <td id="fes-tab">20-10-2015</td>
+                                <th>Fecha de solicitud</th>
+                                <td id="fes-tab">20-10-2015</td>
                                 </tr>
                                 <tr role="row" class="odd">
-                                    <th>Ida y vuelta</th>
-                                    <td id="ida-tab">si</td>
+                                <th>Ida y vuelta</th>
+                                <td id="ida-tab">si</td>
                                 </tr>
                                 <tr role="row" class="odd">
-                                    <th>Numero de puestos</th>
-                                    <td id="ida-puestos">-1</td>
+                                <th>Numero de puestos</th>
+                                <td id="ida-puestos">-1</td>
                                 </tr>
                             </tbody>
                         </table>
