@@ -24,9 +24,11 @@
         <link href="{% static 'sweetalert/dist/sweetalert.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/switch.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/modal.css' %}" rel="stylesheet">
+        <link href="{% static 'formulario/css/jquerytour.css' %}" rel="stylesheet">
+        
         
 
-        <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'formulario/js/jquery-2.1.4.min.js' %}"></script>        
         <script type="text/javascript" src="{% static 'formulario/js/bootstrap.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'sweetalert/dist/sweetalert.min.js' %}"></script>
 
@@ -43,17 +45,20 @@
                             <div class="col-sm-10 col-sm-offset-1 text-center">
                                 <form action="{% url 'formulario:crearRuta' %}" method="post" id="form-origen">
                                     {% csrf_token %} 
-                                    <div class="inner-addon left-addon">
-                                        <input type="text" name="origen" id='origen' placeholder="Punto de origen" class="botones-fomulario" >
-                                        <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
-                                        <i class="fa fa-exclamation iconos-validation" id="ic-origen"></i>
-                                    </div>
+                                    
+                                        <div class="inner-addon left-addon">
+                                            <input type="text" name="origen" id='origen' placeholder="Punto de origen" class="botones-fomulario tour_1" >
+                                            <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
+                                            <i class="fa fa-exclamation iconos-validation" id="ic-origen"></i>
+                                        </div>
+                                    
+                                    
 
                                     <div class="panel with-nav-tabs panel-primary">
                                         <div class="panel-heading">
                                             <ul class="nav nav-tabs">
                                                 <li class="active"><a href="#tab1primary" data-toggle="tab" id="ida">Ida</a></li>
-                                                <li><a href="#tab2primary" data-toggle="tab" id="regreso">Regreso</a></li>
+                                                <li><a href="#tab2primary" data-toggle="tab" id="regreso" class="tour_5">Regreso</a></li>
                                             </ul>
                                         </div>
                                         <div class="panel-body">
@@ -66,7 +71,7 @@
                                                     <hr>
                                                     <div class="cont-a">
                                                         <div class="inner-addon left-addon" id="cont1">
-                                                            <input type="text" name="fecha" id="fecha1" placeholder="Fecha de salida" class="botones-fomulario" style="margin-bottom: 0px" />
+                                                            <input type="text" name="fecha" id="fecha1" placeholder="Fecha de salida" class="botones-fomulario tour_3" style="margin-bottom: 0px" />
                                                             <i class="glyphicon glyphicon-calendar mis-iconos" id = "icono-fecha"></i> 
                                                             <i class="fa fa-exclamation iconos-validation" id="ic-fecha"></i>
                                                             <script type="text/javascript">
@@ -75,7 +80,7 @@
                                                                 });
                                                             </script>
                                                         </div>
-                                                        <a href="#" id = "definir-ruta">Agregar puntos</a> 
+                                                        <a href="#" id = "definir-ruta" class="tour_4">Agregar puntos</a> 
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab2primary">
@@ -100,7 +105,7 @@
 
                                     <div class="inner-addon left-addon">
                                         <input type="text" name="destino" id="destino"
-                                               placeholder="Punto de destino" class="botones-fomulario"
+                                               placeholder="Punto de destino" class="botones-fomulario tour_2"
                                                > 
                                         <i class="glyphicon glyphicon-map-marker mis-iconos"></i> 
                                         <i class="fa fa-exclamation iconos-validation" id="ic-destino"></i>
@@ -123,7 +128,7 @@
                                     
                                     
                                     <div class="container-s">
-                                        <div class="switch white">
+                                        <div class="switch white tour_6">
                                             <input type="radio" name="switch" id="switch-off" value="1" checked>
                                             <input type="radio" name="switch" id="switch-on" value="2" >
                                             <label for="switch-off">Solo ida</label>
@@ -134,7 +139,7 @@
                                     
                                     
                                     <textarea rows="4" cols="50" placeholder="Comentarios " id="comentarios" class="botones-fomulario" resize = "false"></textarea>
-                                    <input type="submit" value="Enviar" class="btn-enviar" />
+                                    <input type="submit" value="Enviar" class="btn-enviar tour_7" />
                                 </form>
                             </div>
                         </div>
@@ -146,9 +151,11 @@
         <script type="text/javascript" src="{% static 'date-picker/moment/min/moment.min.js' %} "></script>
         <script type="text/javascript" src="{% static 'date-picker/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %} "></script>
         <script type="text/javascript" src="{% static 'formulario/js/mapa.js' %}"></script>
+        <script type="text/javascript" src="{% static 'formulario/js/tour.js' %}"></script>
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcEPNy2nmaDLDzM9u4q3XWokUK7UVAUcA&callback=initMap&libraries=places">
-        </script>
-
+        </script>             
+        
+        
     </body>
 </html>
