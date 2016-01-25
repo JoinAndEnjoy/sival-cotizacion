@@ -47,20 +47,30 @@ h1, h2, h3, h4, h5, h6 {
 .btn-enviar {
     width: 100%;
     background-color: #2e3436;
+    height: 35px !important;
     border: none !important;
-    padding-top: 8px !important;
-    padding-bottom: 10px !important;
+    padding-top: 13px !important;
+    padding-bottom: 29px !important;
     -webkit-transition: color 0.15s ease-in, background 0.15s ease-in;
     -moz-transition: color 0.15s ease-in, background 0.15s ease-in;
     -ms-transition: color 0.15s ease-in, background 0.15s ease-in;
     -o-transition: color 0.15s ease-in, background 0.15s ease-in;
     transition: color 0.15s ease-in, background 0.15s ease-in;
-    font-size: 11px;
+    font-size: 13px !important;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 700 !important;
     letter-spacing: 2px;
     border-radius: 0px;
     color: white !important;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #FFAA86;
+}
+
+.nav-tabs>li>a:hover {
+    border-color: #FFAA86;
 }
 
 .contenedor h1 {
@@ -74,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-enviar:hover {
-    background-color: #555753;
+    background-color: #1A1F21;
 }
 
 
@@ -191,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .formulario-container input
 {
-    height: 30px;
+    height: 36px;
     font-size: 14px;
     color: #2e3436;
     font-weight: 400;
@@ -251,6 +261,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* align icon */
 .left-addon .glyphicon  { left:  0px;}
+.punto-int .left-addon .glyphicon  { left:  0px; top: 7px;}
 .right-addon .glyphicon { right: 0px;}
 
 /* add padding  */
@@ -259,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .left-addon .glyphicon {
     left: -2px;
-    top: -1px;
+    top: 1px;
     font-size: 13px;
 }
 
