@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* global parseFloat */
+
 var daton;
 var camino = 1;
 
@@ -21,7 +23,14 @@ $(document).ready(function () {
                 "aoColumns": [
                     {"mData": 'id'},
                     {"mData": 'nombre'},
-                    {"mData": 'fecha'},
+                    {"mData": 'fecha',
+                        "mRender": function (o) {
+                            var mifecha = new Date((o || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
+                            var date = mifecha.getFullYear() + '-' + (mifecha.getMonth() + 1) + '-' + mifecha.getDay();
+                            var time = mifecha.toLocaleTimeString();
+                            return date + ' ' + time;
+                        }
+                    },
                     {"mData": 'origen'},
                     {"mData": 'destino'},
                     {"mData": 'camino',
@@ -35,11 +44,14 @@ $(document).ready(function () {
                     {"mData": null,                        
                         "mRender": function (o) {
                             if (o.camino ===1 )
-                                return o.distancia;                       
+                            {
+                                return parseFloat(o.distancia).toFixed(1);  
+                            }
+                                                     
                             var d1 = parseFloat(o.distancia);
                             var d2 = parseFloat(o.distancia2);
                             var total = d1 + d2;
-                            return total;
+                            return total.toFixed(1);
                         }
                     },
                     {"mData": null,
@@ -102,7 +114,7 @@ function responder(datos)
     var time = mifecha.toLocaleTimeString();
     $('#fecha').html(date);
     $('#hora').html(time);
-    $('#klm').html(datos.distancia);
+    $('#klm').html(parseFloat(datos.distancia).toFixed(1));
     daton = datos;
     $('#s2').removeClass('superior');
     $('#s1').addClass('superior');
@@ -120,7 +132,7 @@ $(document).ready(function () {
         var time = mifecha.toLocaleTimeString();
         $('#fecha').html(date);
         $('#hora').html(time);
-        $('#klm').html(daton.distancia);
+        $('#klm').html(parseFloat(daton.distancia).toFixed(1));
         puntosIda("/administrador/rutaida/" + daton.id + "/");
     });
     $('#s2').click(function () {
@@ -134,7 +146,7 @@ $(document).ready(function () {
             var time = mifecha.toLocaleTimeString();
             $('#fecha').html(date);
             $('#hora').html(time);
-            $('#klm').html(daton.distancia2);
+            $('#klm').html(parseFloat(daton.distancia2).toFixed(1));
             puntosIda("/administrador/rutavuelta/" + daton.id + "/");
         }
 
