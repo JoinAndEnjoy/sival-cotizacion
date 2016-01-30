@@ -83,6 +83,14 @@ $(function () {
             "time": 5000
         },
         {
+            "name": "tour_8",
+            "bgcolor": "black",
+            "color": "white",
+            "position": "BL",
+            "text": "Sí desea alquilar el conductor durante el transcurso del viaje, seleccione esta opción",
+            "time": 5000
+        },
+        {
             "name": "tour_7",
             "bgcolor": "black",
             "color": "white",

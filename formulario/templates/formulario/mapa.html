@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="{% static 'sweetalert/dist/sweetalert.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/switch.css' %}" rel="stylesheet">
+        <link href="{% static 'formulario/css/switch2.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/modal.css' %}" rel="stylesheet">
         <link href="{% static 'formulario/css/jquerytour.css' %}" rel="stylesheet">
         
@@ -127,7 +128,7 @@
                                     </div>
                                     
                                     
-                                    <div class="container-s">
+                                    <div class="container-s" id="swt1">
                                         <div class="switch white tour_6">
                                             <input type="radio" name="switch" id="switch-off" value="1" checked>
                                             <input type="radio" name="switch" id="switch-on" value="2" >
@@ -137,7 +138,16 @@
                                         </div> 
                                     </div> 
                                     
-                                    
+                                    <div class="wrapper">
+                                        <div class="old-ios-switch2 switch2">
+                                            <input type="checkbox" id="old-switch2" value="0">
+                                            <span>
+                                                <label for="old-switch2"></label>
+                                            </span>
+                                        </div>
+                                        <p class="tour_8">Alquilar Conductor</p>
+                                    </div>
+
                                     <textarea rows="4" cols="50" placeholder="Comentarios " id="comentarios" class="botones-fomulario" resize = "false"></textarea>
                                     <input type="submit" value="Enviar" class="btn-enviar tour_7" />
                                 </form>

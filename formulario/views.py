@@ -22,7 +22,7 @@ def crearRuta(request):
     cot.camino = dicconario.get('ruta')
     date = datetime.datetime.strptime(dicconario.get('salida'), "%m/%d/%Y %I:%M %p").strftime('%Y-%m-%d %H:%M')
     cot.salida = date
-    
+    cot.conductor = dicconario.get('conductor')
     cot.distancia = dicconario.get('distancia')
     cot.distancia2 = dicconario.get('distancia2')
     if dicconario.get('regreso')!= "":

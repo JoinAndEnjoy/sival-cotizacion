@@ -501,6 +501,8 @@ function validacionCampos()
     var puesto = $('#puestos');
     var termino = true;
     var condicion = $("input[type='radio'][name='switch']:checked").val();
+    var conductor = $('#old-switch2').is(':checked');
+
     
     if(!puesto.val())
     {
@@ -580,7 +582,8 @@ function validacionCampos()
             ruta :condicion,
             distancia: distance,
             distancia2: distance2,
-            puestos: puesto.val()
+            puestos: puesto.val(),
+            conductor: conductor
         };
         
         return JSON.stringify(respuesta);
