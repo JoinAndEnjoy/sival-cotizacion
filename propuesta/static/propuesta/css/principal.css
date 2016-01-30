@@ -402,6 +402,19 @@ h2
     border: none;
     background-color: #E8572A;
     color: white;
+    margin-bottom: 25px;
+}
+
+.formulario p
+{
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 15px;
+    line-height: 21px;
+    color: #888888;
+}
+.formulario p a{
+    color: #888888;
 }
 
 .mis-iconos

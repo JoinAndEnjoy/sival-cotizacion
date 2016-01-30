@@ -4,6 +4,7 @@ from formulario.models import Cotizacion
 from django.http import HttpResponse
 from django.core.serializers.json import DjangoJSONEncoder
 import json
+from Cotizador import settings
 from django.core import serializers
 from propuesta.models import Confirmacion
 # Create your views here.
@@ -36,3 +37,10 @@ def datosCotizador(request):
     
     con = get_object_or_404(Confirmacion,pk = confirmacion.pk)
     return HttpResponse('ok')
+    
+def pdf(request):
+    with open(settings.BASE_DIR+'/propuesta/static/contrato.pdf', 'rb') as pdf:
+        response = HttpResponse(pdf.read(),content_type='application/pdf')
+        response['Content-Disposition'] = 'filename=contrato.pdf'
+        return response
+    pdf.closed

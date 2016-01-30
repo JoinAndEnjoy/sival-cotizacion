@@ -110,7 +110,10 @@ and open the template in the editor.
                     Somos tu mejor opción
                 </h1>
                 <p>
-                    Nos apaciona el sector de trasnporte y la calida del servicio. Por esto, queremos darte lo mejor y hacerte sentir muy bien. Al aceptar nuestra propuesta nos pondremos en contacto contigo para ajustar los términos y condiciones del contrato
+                    Nos apaciona el sector de trasnporte y la calida del servicio. Por esto, queremos darte lo mejor y hacerte sentir muy bien. Al aceptar nuestra propuesta nos pondremos en contacto contigo para ajustar los términos y condiciones del contrato.
+                </p>
+                <p>
+                    Consignar en la cuenta de ahorros <b>XXX</b> a nombre de <b>XXX</b>
                 </p>
                 <form method="post" id="formulario-repsuetsa">
                     {% csrf_token %} 
@@ -128,6 +131,8 @@ and open the template in the editor.
                             <i class="fa fa-phone fa-2x mis-iconos"></i>
                         </div>                    
                         <button>Aceptar propuesta</button>
+                        <p>Al aceptar la propuesta está aceptando nuestros </p>
+                        <p><u><a href="{% url 'propuesta:pdf' %}" target="_blank">términos y condiciones</a></u></p>
                     </div>
                 </form>
                 <span></span>
@@ -141,10 +146,10 @@ and open the template in the editor.
                 </p>
                 <p>
                     o, si lo prefieres, puedes chatear con nosotros
-                </p>
+                </p>                
                 <button>Empezar chat</button>
                 <br>
-                <a href="#" onclick="myFunction()">Imprimir</a>
+                <a href="#" onclick="myFunction()"><i class="fa fa-print fa-5x" style="color: white"></i></a>
                 <script>
                 function myFunction() {
                     window.print();
