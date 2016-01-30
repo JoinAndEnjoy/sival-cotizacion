@@ -501,7 +501,7 @@ function validacionCampos()
     var puesto = $('#puestos');
     var termino = true;
     var condicion = $("input[type='radio'][name='switch']:checked").val();
-    var conductor = $('#old-switch2').is(':checked');
+    var conductor = $('#c1').is(':checked');
 
     
     if(!puesto.val())
